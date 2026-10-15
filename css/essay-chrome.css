@@ -1,0 +1,101 @@
+/* Essay page chrome, 10/15. Loaded AFTER the essay's own stylesheets; it touches only the film strip (.lr-bar), the head (.mast, .authnote, .meta), the container width (.wrap) and the end door (.lr-next).
+   Tokens match the inner pages (D2). One yellow only: #FFB300. Wordle colours and boards are not touched. Class names are lr- prefixed because the essay already uses .dn, .next, .l and header. */
+@font-face{font-family:"Sofia Sans XC";src:url(../fonts/sofia-sans-xc-latin.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:Schola;src:url(../fonts/schola-regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Schola;src:url(../fonts/schola-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Schola;src:url(../fonts/schola-bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+:root{--c-yellow:#FFB300;--c-film:#1A1918;--c-rebate:#CFC9BD;--c-paper:#1A1918;--c-dim:#5F5B57;--c-mark:#A12A22;--c-marktext:#A12A22;--c-line:#1A1918;--c-doorbg:#1A1918;--c-doortx:#FBFBF8;
+  --c-display:"Sofia Sans XC","Arial Narrow",sans-serif;--c-body:Schola,Charter,Georgia,serif;--c-label:"Libre Franklin","Helvetica Neue",sans-serif;
+  --c-circle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 200' preserveAspectRatio='none'%3E%3Cpath d='M340 6 C600 2 672 22 672 100 C672 180 600 196 340 194 C80 196 8 180 8 100 C8 22 80 8 440 12' fill='none' stroke='%23A12A22' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-film:#2E2A27;--c-rebate:#2E2925;--c-paper:#EDE6DA;--c-dim:#A9A196;--c-mark:#D2483C;--c-marktext:#E0584A;--c-line:#FFB300;--c-doorbg:#EDE6DA;--c-doortx:#14110E;
+  --c-circle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 200' preserveAspectRatio='none'%3E%3Cpath d='M340 6 C600 2 672 22 672 100 C672 180 600 196 340 194 C80 196 8 180 8 100 C8 22 80 8 440 12' fill='none' stroke='%23D2483C' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")}}
+:root[data-theme="dark"]{--c-film:#2E2A27;--c-rebate:#2E2925;--c-paper:#EDE6DA;--c-dim:#A9A196;--c-mark:#D2483C;--c-marktext:#E0584A;--c-line:#FFB300;--c-doorbg:#EDE6DA;--c-doortx:#14110E;
+  --c-circle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 200' preserveAspectRatio='none'%3E%3Cpath d='M340 6 C600 2 672 22 672 100 C672 180 600 196 340 194 C80 196 8 180 8 100 C8 22 80 8 440 12' fill='none' stroke='%23D2483C' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")}
+
+/* ===== film strip (D2's strip, same geometry) ===== */
+.lr-bar{position:sticky;top:0;z-index:50;background:var(--ground);padding:16px 0;transition:transform 180ms ease;will-change:transform;font-family:var(--c-label)}
+.lr-bar.is-hidden{transform:translateY(-100%)}
+body.recOpen .lr-bar{transform:translateY(-100%)!important;visibility:hidden!important;pointer-events:none!important}   /* the phone record sheet is a layer over the page: the strip stays away while it is open */
+@media (prefers-reduced-motion:reduce){.lr-bar{transition:none}}
+.lr-strip{--hw:12px;--hh:8px;--hp:24px;--hy:7px;--sh:64px;--pad:max(24px,calc((100% - 1200px) / 2 + 24px));--cw:52px;
+  position:relative;height:var(--sh);margin:0;background-color:var(--c-film);
+  background-image:linear-gradient(90deg,var(--ground) var(--hw),transparent var(--hw)),linear-gradient(90deg,var(--ground) var(--hw),transparent var(--hw));
+  background-size:var(--hp) var(--hh),var(--hp) var(--hh);
+  background-position:0 var(--hy),0 calc(var(--sh) - var(--hy) - var(--hh));background-repeat:repeat-x;
+  border-block:1px solid var(--c-rebate)}
+.lr-can{position:absolute;left:var(--pad);top:50%;transform:translateY(-50%);height:96px;width:var(--cw);z-index:2;display:block}
+.lr-can img{display:block;height:100%;width:100%;object-fit:contain}
+.lr-can:focus-visible{outline:3px solid var(--c-yellow);outline-offset:4px}
+.lr-in{position:absolute;left:0;right:0;top:calc(var(--hy) + var(--hh) + 3px);bottom:calc(var(--hy) + var(--hh) + 3px);
+  display:flex;align-items:center;gap:24px;padding-left:calc(var(--pad) + var(--cw) + 20px);padding-right:var(--pad);white-space:nowrap}
+.lr-t{flex:none;font-family:var(--c-label);font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-yellow)}
+.lr-in nav{flex:none;display:flex;gap:16px;margin-left:auto}
+.lr-in nav a{position:relative;flex:none;display:flex;align-items:center;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#EDE6DA;text-decoration:none;padding:3px 0;border-bottom:3px solid transparent}
+.lr-in nav a::after{content:"";position:absolute;inset:-10px -8px}
+.lr-in nav a:hover,.lr-in nav a:focus-visible{border-bottom-color:#EDE6DA}
+.lr-in nav a[aria-current]{color:var(--c-yellow);border-bottom-color:var(--c-yellow)}
+.lr-s{display:none}
+@media (max-width:1239px){.lr-l{display:none}.lr-s{display:inline}}
+@media (max-width:560px){
+  .lr-bar{padding:8px 0}
+  .lr-strip{--hw:9px;--hh:6px;--hp:18px;--hy:5px;--sh:108px;--pad:16px;--cw:42px}
+  .lr-can{height:84px}
+  .lr-in{display:grid;grid-template-rows:28px 44px;align-content:center;gap:0;padding-left:calc(var(--pad) + var(--cw) + 12px);padding-right:12px;top:calc(var(--hy) + var(--hh) + 2px);bottom:calc(var(--hy) + var(--hh) + 2px)}
+  .lr-t{font-size:13px;letter-spacing:.03em;line-height:28px}
+  .lr-in nav{margin-left:0;gap:0;justify-content:space-between;align-items:stretch}
+  .lr-in nav a{min-height:44px;padding:0 4px;border-bottom-width:3px}
+  .lr-in nav a::after{inset:0 -4px}
+  .lr-l{display:none}.lr-s{display:inline}
+}
+
+/* ===== head: same container and look as the inner pages ===== */
+.wrap{box-sizing:border-box;max-width:1200px;margin-inline:auto}
+body{margin:0}   /* the essay had the browser's 8px body margin; the strip is full width like the inner pages */
+@media (min-width:821px){.wrap{padding-inline:24px;padding-block:48px 64px}}
+.mast{max-width:none;margin:0 0 8px;justify-items:center;text-align:center;gap:16px}
+.mast h1{font-family:var(--c-display);font-weight:800;font-size:clamp(44px,8.4vw,112px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em;margin:0 0 8px;max-width:20ch;text-wrap:balance}
+.mast .stand{font-family:var(--c-body);font-size:clamp(19px,2vw,24px);line-height:1.45;max-width:46rem;margin-inline:auto}
+.mast .meta{font-family:var(--c-label);font-size:14px;color:var(--c-dim)}
+.mast .meta b{color:var(--ink)}
+/* the note: the circled note of the How page, drawn with CSS only (the same hand-drawn oval as a background image) */
+.authnote{position:relative;max-width:50rem;margin:36px auto 28px;padding:52px 64px;border:0;background:none;text-align:left}
+.authnote::before{content:"";position:absolute;inset:-14px;background:var(--c-circle) center/100% 100% no-repeat;pointer-events:none}
+.authnote b{display:block;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-marktext);margin-bottom:8px}
+.authnote p{font-size:21px;line-height:1.5;font-style:italic;margin:0;max-width:none}
+.authnote p+p{margin-top:14px}
+/* reading column: the text and its record link sit as one unit centred in the 1200 container (left and right whitespace equal) */
+@media (min-width:821px){
+  :root{--lr-unit:1080px}
+  #essay .pgrid{width:min(100%,var(--lr-unit));margin-inline:auto;grid-template-columns:minmax(0,70%) minmax(0,1fr)}
+  #essay .photo{width:calc(min(100%,var(--lr-unit)) * .7);max-width:none;margin-left:calc((100% - min(100%,var(--lr-unit))) / 2);margin-right:0}
+  #essay .sech{width:min(100%,var(--lr-unit));box-sizing:border-box;margin-inline:auto!important}
+  .guide{margin-inline:auto}
+}
+@media (max-width:820px){.wrap{padding-block:32px 56px}.authnote{padding:40px 32px}}
+@media (max-width:480px){.authnote{padding:48px 40px;margin-inline:10px}.authnote p{font-size:19px}}
+
+/* ===== closing note: where this stands ===== */
+.lr-close{max-width:44rem;margin:56px auto 0;padding:28px 24px 0;border-top:1px solid var(--c-line);font-family:var(--c-label)}
+.lr-close b{display:block;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-marktext);margin-bottom:10px}
+.lr-close p{font-family:var(--serif);font-size:19px;line-height:1.55;margin:0}
+.lr-close a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--c-line)}
+.lr-close a:hover,.lr-close a:focus-visible{text-decoration-thickness:3px}
+/* ===== door: next in the record (D2's component) ===== */
+.lr-next{max-width:1200px;margin:0 auto;padding:48px 24px 24px;display:grid;gap:16px;font-family:var(--c-label)}
+.lr-door{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:112px;padding:24px 48px;background:var(--c-doorbg);color:var(--c-doortx);text-decoration:none;border-bottom:6px solid var(--c-yellow)}
+.lr-door:hover,.lr-door:focus-visible{outline:3px solid var(--c-yellow);outline-offset:3px}
+.lr-dl{display:block;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.lr-dn{display:block;font-family:var(--c-display);font-weight:800;font-size:clamp(32px,5.2vw,60px);line-height:1;text-transform:uppercase}
+.lr-da{font-family:var(--c-display);font-weight:800;font-size:56px;line-height:1}
+.lr-dl+.lr-dn{margin-top:4px}
+.lr-backs{display:flex;flex-wrap:wrap;gap:8px 48px;justify-content:center}
+.lr-back{display:inline-flex;align-items:center;min-height:44px;font-family:var(--c-label);font-size:15px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--c-line);text-decoration-thickness:2px;text-underline-offset:3px}
+.lr-back:hover,.lr-back:focus-visible{text-decoration-thickness:4px}
+@media (max-width:899px){.lr-door{padding:24px;min-height:96px}.lr-da{font-size:40px}}
+@media (max-width:820px){.lr-next{padding:32px 16px calc(130px + env(safe-area-inset-bottom))}}   /* clears the phone dock and peek bar */
+
+/* strip title is a link to the landing page */
+a.strip-t,a.lr-t{text-decoration:none;color:var(--c-yellow);display:inline-flex;align-items:center;min-height:28px}
+a.strip-t:hover,a.lr-t:hover,a.strip-t:focus-visible,a.lr-t:focus-visible{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+a.strip-t:focus-visible,a.lr-t:focus-visible{outline:3px solid var(--c-yellow);outline-offset:3px}

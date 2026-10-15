@@ -1,4 +1,4 @@
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>The Latent Record: the essay</title><meta name="robots" content="noindex,nofollow"><meta name="description" content="An essay about George Eastman, written with Claude, shown as it was made: every draft, every note, every cut."><meta property="og:title" content="The Latent Record"><meta property="og:description" content="An essay about George Eastman, written with Claude, shown as it was made: every draft, every note, every cut."><meta property="og:type" content="website"><meta property="og:image" content="https://evmonaha880.github.io/latent-record-preview/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23A12A22%22/%3E%3Cpath d=%22M9 7h5v14h9v4H9z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/sofia-sans-xc-latin.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../fonts/schola-regular.woff2"><link rel="preload" as="image" href="../assets/canister.webp"><title>The Latent Record: the essay</title><meta name="robots" content="noindex,nofollow"><meta name="description" content="An essay about George Eastman, written with Claude, shown as it was made: every draft, every note, every cut."><meta property="og:title" content="The Latent Record"><meta property="og:description" content="An essay about George Eastman, written with Claude, shown as it was made: every draft, every note, every cut."><meta property="og:type" content="website"><meta property="og:image" content="https://evmonaha880.github.io/latent-record-preview/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23A12A22%22/%3E%3Cpath d=%22M9 7h5v14h9v4H9z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
 <link rel="stylesheet" href="../fonts/lf.css">
 <style>
 :root{
@@ -296,18 +296,382 @@ body[data-chat="lines"] .text.chatframe{background:none;border-radius:0;border-l
   .side{gap:14px;padding-top:2px}
   .rl button{min-height:44px}
 }
+</style><style data-lr="essay-css">/* Essay page, 10/09 working fork: photos, guide, three phone layouts. Added to the mock-up; nothing above is edited. */
+
+/* photographs: as wide as the text column on a laptop, full width on a phone */
+.photo{margin:20px 0 34px;max-width:760px}
+.photo img{display:block;width:100%;height:auto;background:var(--surface)}
+.photo figcaption{font-family:var(--sans);font-size:12px;line-height:1.45;color:var(--muted);letter-spacing:.03em;margin-top:8px}
+.photo .rec{font-style:italic;letter-spacing:0}
+@media (min-width:821px){.photo{width:calc((100% - 40px)*1.45/2.45)}}
+
+/* the guide to the squares */
+.guide{max-width:70ch;margin:16px 0 0;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+.guide>summary{font-family:var(--sans);font-size:13px;font-weight:700;padding:12px 14px;cursor:pointer;list-style:none;min-height:44px;display:flex;align-items:center;justify-content:space-between}
+.guide>summary::-webkit-details-marker{display:none}
+.guide>summary::after{content:"▾";font-size:12px;color:var(--muted)}
+.guide[open]>summary::after{content:"▴"}
+.gbody{padding:2px 16px 16px;font-family:var(--sans);color:var(--ink)}
+.gbody h2{font-size:17px;margin:10px 0 6px;font-weight:700}
+.gp{font-size:14.5px;line-height:1.5;margin:8px 0}
+.gdemo{display:grid;gap:5px;margin:12px 0;padding:12px;background:var(--ground);border:1px solid var(--rule);border-radius:3px;width:max-content;max-width:100%}
+.gr{display:flex;align-items:center;gap:12px}.gl{font-size:12px;color:var(--muted);width:48px}
+.gr .qr{display:flex;gap:4px}.gr .tile{width:22px;height:22px}
+.gcap{font-size:12px;color:var(--muted);margin-top:4px}
+.gk{list-style:none;margin:8px 0;padding:0;display:grid;gap:7px;font-size:14px}
+.gk li{display:flex;align-items:center;gap:10px}.gk .sw{display:inline-block;width:16px;height:16px;flex:none}
+.gk .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 3px;flex:none}.gk .dot.n{background:var(--red)}.gk .dot.ch{background:var(--chat)}
+#guideSheet{border:0;padding:0;background:var(--ground);color:var(--ink);width:min(560px,100%);max-height:86vh;overflow:auto;border-radius:14px 14px 0 0;margin:auto auto 0;box-shadow:0 -10px 40px rgba(0,0,0,.25)}
+#guideSheet::backdrop{background:rgba(10,8,6,.45)}
+.gclose{font-family:var(--sans);font-size:15px;font-weight:700;margin-top:10px;width:100%;min-height:48px;border:0;border-radius:8px;background:var(--ink);color:var(--ground);cursor:pointer}
+
+/* mock-up only: the phone layout switcher */
+.msw{display:none;gap:6px;flex-wrap:wrap;align-items:center;font-family:var(--sans);font-size:12px;color:var(--muted);margin:14px 0 0}
+.msw button{font-family:var(--sans);font-size:11px;font-weight:700;border:1px dashed var(--muted);background:none;color:var(--muted);min-height:34px;padding:0 10px;cursor:pointer}
+.msw button[aria-pressed="true"]{border-style:solid;border-color:var(--ink);color:var(--ink)}
+
+#peek,.ribbon,#rdock{display:none}
+
+@media (max-width:820px){
+  /* every phone layout: the text gets the screen */
+  .wrap{padding-inline:16px;padding-block:18px 56px}
+  .text{font-size:19.5px;line-height:1.55}
+  .pgrid{gap:2px}
+  .pblock{margin:0 0 24px}
+  .mast h1{font-size:30px}
+  .msw{display:flex}
+  .introph{min-height:0;padding:12px;margin:14px 0 6px}
+  .photo{margin:16px -16px 28px;max-width:none}
+  .photo figcaption{padding:0 16px}
+
+  /* 1 whisper line: the grid hides; one quiet line under the paragraph opens it */
+  body[data-m="1"] .quiet{display:none}
+  body[data-m="1"] .side{display:block;padding:0}
+  body[data-m="1"] .rl{display:flex;flex-wrap:wrap;align-items:center;gap:0 12px;padding:0;font-size:12.5px;color:var(--muted)}
+  body[data-m="1"] .rl button{margin:0;min-height:40px;font-size:12.5px;border-bottom:1px solid var(--ink)}
+  body[data-m="1"] .pblock:not(.cur) .rl{opacity:.55}
+
+  /* 2 peek bar: no per-paragraph clutter; one bar follows the paragraph being read */
+  body[data-m="2"] .side{display:none}
+  body.hasPeek .wrap{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+  #peek{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:20;align-items:center;gap:6px;padding:6px 8px 6px 6px;background:var(--ground);border:1px solid var(--rule);border-radius:22px;box-shadow:0 6px 22px rgba(0,0,0,.18);font-family:var(--sans)}
+  #peek.on{display:flex}
+  #peek .pk-main{flex:1;min-width:0;display:flex;align-items:center;gap:12px;min-height:48px;padding:0 6px 0 10px;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+  #peek .pk-grid{display:flex;flex-direction:column;justify-content:center;min-height:40px;flex:none}
+  #peek .pk-grid .qr{display:flex}
+  #peek .pk-t{display:grid;font-size:12px;line-height:1.3;color:var(--muted);min-width:0;flex:1}#peek .pk-t b{color:var(--ink);font-size:14px}
+  #peek .pk-go{flex:none;font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap}
+  #peek .pk-q{font-family:var(--sans);font-size:14px;font-weight:700;width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:none;color:var(--muted);cursor:pointer;flex:none;position:relative}
+  #peek .pk-q::after{content:"";position:absolute;inset:-6px}
+
+  /* 3 edge ribbon: a one-column Wordle down the paragraph's right edge */
+  body[data-m="3"] .side{display:none}
+  body[data-m="3"] .hasrib{position:relative;padding-right:16px}
+  body[data-m="3"] .ribbon{display:flex;flex-direction:column;gap:2px;position:absolute;right:0;top:6px;bottom:6px;width:5px;padding:0;border:0;background:none;cursor:pointer;opacity:.4;transition:opacity .3s}
+  body[data-m="3"] .pblock.cur .ribbon{opacity:.95}
+  body[data-m="3"] .ribbon i{flex:1;min-height:6px;border-radius:2px;display:block}
+  body[data-m="3"] .ribbon i.G{background:var(--wg)}body[data-m="3"] .ribbon i.Y{background:var(--wy)}body[data-m="3"] .ribbon i.X{background:#8a8a8c}
+  body[data-m="3"] .ribbon::after{content:"";position:absolute;inset:-4px -14px -4px -14px}
+}
+
+@media (max-width:820px){
+  /* record dock */
+  #rdock.on{display:block;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:22;background:var(--ground);border:1px solid var(--rule);border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.18);font-family:var(--sans)}
+  #rdock .rd-panel{max-height:44vh;overflow:auto;padding:10px 14px 4px;border-bottom:1px solid var(--rule)}
+  #rdock .rd-panel[hidden]{display:none}
+  #rdock .rd-panel .card{margin:0 0 10px}
+  #rdock .rd-bar{display:flex;align-items:center;gap:8px;padding:6px 8px 6px 10px}
+  #rdock .rd-prev,#rdock .rd-next{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:none;color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+  #rdock .rd-lab{flex:1;min-width:0;display:grid;line-height:1.3}
+  #rdock .rd-lab b{font-size:14px}
+  #rdock .rd-lab span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #rdock .rd-notes{flex:none;font-family:var(--sans);font-size:13px;font-weight:700;background:var(--ink);color:var(--ground);border:0;border-radius:999px;min-height:44px;padding:0 14px;cursor:pointer;white-space:nowrap}
+  #rdock .rd-notes[hidden]{display:none}
+  #rdock .rd-notes i{font-style:normal;opacity:.8}
+  #rdock .rd-notes[aria-expanded="true"]{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  body.inRecord .wrap{padding-bottom:calc(140px + env(safe-area-inset-bottom))}
+  body.inRecord #peek{display:none}
+  body.inRecord .gnote:not(.rd-panel){display:none}   /* the notes live in the dock; they are not repeated above the text */
+}
+
+/* 10/12: a Wordle-style guide (NYT "How to play" layout) and more prominent section headings */
+.gh{font-family:var(--sans);font-size:20px;font-weight:800;margin:6px 0 2px;color:var(--ink)}
+.gl1{font-size:16px}
+.gx{font-family:var(--sans);font-size:15px;font-weight:800;margin:14px 0 4px;color:var(--ink)}
+.gex{display:flex;align-items:center;gap:14px;margin:8px 0}.gex p{margin:0;font-size:14.5px;line-height:1.4}
+.gex .qr{display:flex;gap:4px;flex:none}.gex .tile{width:26px;height:26px}
+.gex .tile.E{background:transparent;box-shadow:inset 0 0 0 2px var(--rule)}
+.sech{font-family:var(--serif)!important;font-size:clamp(28px,7vw,40px)!important;font-weight:700!important;letter-spacing:-.01em!important;text-transform:none!important;line-height:1.12;color:var(--ink)!important;margin:72px 0 26px!important;padding-top:22px!important;border-top:3px solid var(--ink)!important;text-wrap:balance}
+
+.gex{flex-direction:column;align-items:flex-start;gap:6px;margin:12px 0}
+
+/* the five pages (ruled 10/2, R-1002-0944a): a small menu under the kicker, in the page's own greys */
+.pages{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0 2px;padding:8px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:13px;font-weight:600}
+.pages a{color:var(--ink);text-decoration:none;padding:6px 0;min-height:20px}.pages a:hover{text-decoration:underline;text-underline-offset:3px}
+.pages a[aria-current]{border-bottom:2px solid var(--ink);font-weight:800}
+.pages .soon{color:var(--muted);padding:6px 0;cursor:default}.pages .soon::after{content:" · soon";font-weight:400}
+
+/* 10/15: the Wordle guide in dark mode (and the demo box never wider than the sheet) */
+.gdemo{width:auto;max-width:100%;box-sizing:border-box}.gcap{max-width:38ch}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .guide{background:#2C261F;border-color:#52493F}
+  :root:not([data-theme="light"]) #guideSheet{background:#2C261F;border:1px solid #52493F;border-bottom:0;box-shadow:0 -12px 50px rgba(0,0,0,.7)}
+  :root:not([data-theme="light"]) #guideSheet::backdrop{background:rgba(0,0,0,.72)}
+  :root:not([data-theme="light"]) .gdemo{background:#1D1913;border-color:#52493F}
+  :root:not([data-theme="light"]) .gbody .tile.E,:root:not([data-theme="light"]) .gdemo .tile.E{background:transparent;box-shadow:inset 0 0 0 2px #6A6055}
+  :root:not([data-theme="light"]) .gbody .tile.X,:root:not([data-theme="light"]) .gdemo .tile.X{background:#66656A}
+  :root:not([data-theme="light"]) .gex p,:root:not([data-theme="light"]) .gp{color:#EDE8DE}
+  :root:not([data-theme="light"]) .gl,:root:not([data-theme="light"]) .gcap{color:#B9B3AA}
+}
+:root[data-theme="dark"] .guide{background:#2C261F;border-color:#52493F}
+:root[data-theme="dark"] #guideSheet{background:#2C261F;border:1px solid #52493F;border-bottom:0;box-shadow:0 -12px 50px rgba(0,0,0,.7)}
+:root[data-theme="dark"] #guideSheet::backdrop{background:rgba(0,0,0,.72)}
+:root[data-theme="dark"] .gdemo{background:#1D1913;border-color:#52493F}
+:root[data-theme="dark"] .gbody .tile.E,:root[data-theme="dark"] .gdemo .tile.E{background:transparent;box-shadow:inset 0 0 0 2px #6A6055}
+:root[data-theme="dark"] .gbody .tile.X,:root[data-theme="dark"] .gdemo .tile.X{background:#66656A}
+:root[data-theme="dark"] .gl,:root[data-theme="dark"] .gcap{color:#B9B3AA}
+
+/* author's note under the byline */
+.authnote{border-left:4px solid var(--red);background:var(--surface);padding:12px 16px 4px;margin:16px 0 8px;max-width:62ch}
+.authnote b{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.authnote p{font-size:17px;line-height:1.5;margin:6px 0 10px;font-style:italic}
+/* Record sheet (phones). The record is a layer over the page: paragraph or selected draft on top, a bottom sheet with the Wordle, the stepper and the notes. */
+.msw-g{display:inline-flex;gap:6px;align-items:center;margin-right:8px;flex-wrap:wrap}
+@media (max-width:820px){
+  body.r1.recOpen{overflow:hidden}
+  body.r1 #rdock{display:none!important}
+  body.r1.recOpen #peek{display:none!important}
+  body.r1 .pblock.opened #pv{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;background:var(--ground);margin:0;overflow:hidden}
+  body.r1 #vstrip{display:none!important}
+  body.r1 #pv .pvbar{flex:none;margin:0;padding:10px 16px;border-top:0;border-bottom:1px solid var(--rule);min-height:52px}
+  body.r1 #pv .pvbar button{min-height:40px;font-size:14px}
+  body.r1 #pv .grid{flex:1;min-height:0;display:flex;flex-direction:column;gap:0}
+  body.r1 #pv .para{order:0;flex:1 1 auto;min-height:0;overflow:auto;padding:12px 16px 16px;-webkit-overflow-scrolling:touch}
+  body.r1 #pv .ideabox{margin:0 0 14px}
+  body.r1.drafting #pv .ideabox{display:none}
+  body.r1 #pv .board{order:1;flex:none;height:var(--sheetH,52vh);overflow:auto;background:var(--surface);border-radius:18px 18px 0 0;box-shadow:0 -6px 24px rgba(0,0,0,.16);padding:0 16px calc(16px + env(safe-area-inset-bottom));position:relative;transition:height .25s ease}
+  body.r1 #pv .board.big{height:86vh}
+  body.r1 #pv .board #boardlab,body.r1 #pv .board .intro,body.r1 #pv .board .howto{display:none}
+  body.r1 #pv .board .legend{display:none}
+  body.r1 #pv .board.big .legend{display:block;margin:8px 0}
+  body.r1 #pv .board.big .legend .ln{display:flex}
+  /* header of the sheet */
+  .sh-bar{position:sticky;top:0;z-index:3;background:var(--surface);padding-top:6px;margin:0 -16px;padding-inline:16px}
+  .sh-handle{width:44px;height:5px;border-radius:3px;background:var(--muted);opacity:.5;margin:0 auto 8px}
+  .sh-row{display:flex;align-items:center;gap:6px;min-height:48px}
+  .sh-prev,.sh-next{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:var(--ground);color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+  .sh-lab{flex:1;min-width:0;display:grid;line-height:1.25;font-family:var(--sans)}
+  .sh-lab b{font-size:14px}.sh-lab span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sh-pub{flex:none;font-family:var(--sans);font-size:12px;font-weight:700;border:1px solid var(--ink);border-radius:999px;background:none;color:var(--ink);min-height:36px;padding:0 10px;cursor:pointer;white-space:nowrap}
+  .sh-pub[hidden]{display:none}
+  .sh-big{flex:none;width:34px;height:36px;border:0;background:none;color:var(--muted);font-size:18px;cursor:pointer}
+  .sh-x{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--ink);background:var(--ground);color:var(--ink);font-size:16px;font-weight:700;cursor:pointer}
+  .sh-big[aria-expanded="true"]{transform:rotate(180deg)}
+  .sh-cap{margin:2px 0 6px;font-family:var(--sans);font-size:12.5px;line-height:1.35;color:var(--muted)}
+  .sh-cap:empty{display:none}
+  /* the grid: one line per draft; the whole row is the tap target */
+  body.r1 #pv .gridwrap{margin:2px 0 0}
+  body.r1 #pv .rows{gap:2px}
+  body.r1 #pv .row{padding:0;border-radius:6px}
+  body.r1 #pv .row.seed{display:none}
+  body.r1 #pv #pubbtn{display:none}
+  body.r1 #pv .row.open{background:var(--tintc)}
+  body.r1 #pv .rowbtn{display:flex;align-items:center;gap:8px;width:100%;min-height:var(--rowh,26px);height:var(--rowh,26px);padding:0 4px;grid-template-columns:none}
+  body.r1 #pv .rowbtn::before{content:attr(data-n);flex:none;width:22px;font:700 12px/1 var(--sans);color:var(--muted);text-align:center;order:-1}
+  body.r1 #pv .rowbtn .dn{font-size:0;line-height:0;width:0;overflow:hidden;flex:none}
+  body.r1 #pv .rowbtn .mks{display:none}
+  body.r1 #pv .rowbtn .tiles{display:flex;flex-wrap:nowrap;gap:var(--gap,3px);max-width:none;flex:none}
+  body.r1 #pv .rowbtn .tile{width:var(--sq,18px);height:var(--sq,18px);flex:none}
+  body.r1 #pv .rowbtn[data-note="1"]::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none;margin-left:2px}
+  /* notes for the selected draft, under the grid */
+  body.r1.inRecord #pv .gnote{display:block;margin:12px 0 0}
+  body.r1 #pv .gnote .card{scroll-margin-top:70px;transition:box-shadow .3s}
+  body.r1 #pv .gnote .card.flash,.pin.flash{box-shadow:0 0 0 3px var(--ink)}
+  body.r1 #pv .pvfoot{margin-top:14px}
+}
+
+@media (max-width:820px){
+  body.r1 #pv .board.peek{height:calc(86px + env(safe-area-inset-bottom));overflow:hidden}
+  body.r1 #pv .board.peek .sh-cap{display:none}
+  body.r1 #pv .board{touch-action:pan-y}
+  body.r1 #pv .pvbar #pvclose{font-weight:700;min-height:44px;padding:0 4px}
+}
+/* Simplified phone record (?s=2). Builds on record-sheet.css. */
+@media (max-width:820px){
+  body.s2 #pv .board{height:auto;max-height:46vh;min-height:0;overflow:auto}
+  body.s2 #pv .board.big,body.s2 #pv .board.peek{height:auto;max-height:46vh}
+  body.s2 .sh-pub,body.s2 .sh-big,body.s2 .sh-x,body.s2 #pv .pvfoot,body.s2 #pv .board .legend{display:none!important}
+  body.s2 #pv{--rowh:30px!important;--sq:12px!important;--gap:3px!important}
+  body.s2 #pv .rowbtn{min-height:30px;height:30px}
+  body.s2 #pv .rows .s2hide{display:none}
+  body.s2 #pv .rows .s2dim{opacity:.5}
+  body.s2 #pv .rows .s2fold{display:flex;align-items:center;min-height:30px;padding:0 4px 0 4px;cursor:pointer;border-radius:6px}
+  body.s2 #pv .rows .s2fold.s2hide{display:none}
+  body.s2 #pv .rows .s2fold .s2fl{font:600 12px/1.2 var(--sans);color:var(--muted);padding-left:30px}
+  body.s2 #pv .rows .s2fold:active{background:var(--tintc)}
+  body.s2 #pv .board .s2q{display:block;margin:0 0 6px;padding:6px 0;border:0;background:none;font:600 12.5px var(--sans);color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:32px}
+  body.s2 #pv .board .s2leg{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 8px;padding:8px 10px;border:1px solid var(--rule);border-radius:10px;background:var(--ground);font:12.5px var(--sans);color:var(--ink)}
+  body.s2 #pv .board .s2leg[hidden]{display:none}
+  body.s2 .s2leg span{display:inline-flex;align-items:center;gap:6px}
+  body.s2 .s2leg .sw{display:inline-block;width:12px;height:12px}
+  body.s2 .s2leg .sw.g{background:var(--wg)}body.s2 .s2leg .sw.y{background:var(--wy);box-shadow:inset 0 0 0 2px var(--wyb)}body.s2 .s2leg .sw.x{background:var(--wx)}
+  body.s2 .s2leg .rd{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red)}
+  body.s2 #pv .gnote{margin-top:8px}
+  body.s2 #pv .gnote .card.s2hide{display:none}
+  body.s2 #pv .gnote .card .lostl{display:none}
+  body.s2 #pv .gnote .card .job,body.s2 #pv .gnote .card .at{display:inline}
+  body.s2 #pv .gnote .card .at{margin-left:6px}
+  body.s2 #pv .board .s2more{display:block;margin:6px 0 0;padding:6px 0;border:0;background:none;font:700 13px var(--sans);color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:36px}
+  /* reading bar: Evan's real quote, no mini grid, no "?" (R-1012-1051a) */
+  body.s2 #peek .pk-grid,body.s2 #peek .pk-q,body.s2 #peek .pk-go{display:none}
+  body.s2 #peek .pk-t .pk-quote{font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;color:var(--ink);opacity:.8}
+  body.s2 #peek .pk-main{gap:6px;padding:0 10px}
+}
+
+/* a long first note is capped, and "+N more" sits on the note's own header line (top right) so it is always on screen; "+N more" shows everything */
+body.s2 #pv .gnote{position:relative}
+body.s2 #pv .gnote.s2clamp .card:not(.s2hide){max-height:6.4em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+body.s2 #pv .gnote.s2clamp .card:not(.s2hide) .job{padding-right:96px;min-height:46px;box-sizing:border-box}
+body.s2 #pv .gnote .s2more{position:absolute;top:0;right:0;z-index:2;margin:0;min-height:34px;padding:4px 10px;display:flex;align-items:center;background:var(--surface);border-radius:6px}
+/* Essay page chrome, 10/15. Loaded AFTER the essay's own stylesheets; it touches only the film strip (.lr-bar), the head (.mast, .authnote, .meta), the container width (.wrap) and the end door (.lr-next).
+   Tokens match the inner pages (D2). One yellow only: #FFB300. Wordle colours and boards are not touched. Class names are lr- prefixed because the essay already uses .dn, .next, .l and header. */
+@font-face{font-family:"Sofia Sans XC";src:url(../fonts/sofia-sans-xc-latin.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:Schola;src:url(../fonts/schola-regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Schola;src:url(../fonts/schola-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:Schola;src:url(../fonts/schola-bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+:root{--c-yellow:#FFB300;--c-film:#1A1918;--c-rebate:#CFC9BD;--c-paper:#1A1918;--c-dim:#5F5B57;--c-mark:#A12A22;--c-marktext:#A12A22;--c-line:#1A1918;--c-doorbg:#1A1918;--c-doortx:#FBFBF8;
+  --c-display:"Sofia Sans XC","Arial Narrow",sans-serif;--c-body:Schola,Charter,Georgia,serif;--c-label:"Libre Franklin","Helvetica Neue",sans-serif;
+  --c-circle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 200' preserveAspectRatio='none'%3E%3Cpath d='M340 6 C600 2 672 22 672 100 C672 180 600 196 340 194 C80 196 8 180 8 100 C8 22 80 8 440 12' fill='none' stroke='%23A12A22' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-film:#2E2A27;--c-rebate:#2E2925;--c-paper:#EDE6DA;--c-dim:#A9A196;--c-mark:#D2483C;--c-marktext:#E0584A;--c-line:#FFB300;--c-doorbg:#EDE6DA;--c-doortx:#14110E;
+  --c-circle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 200' preserveAspectRatio='none'%3E%3Cpath d='M340 6 C600 2 672 22 672 100 C672 180 600 196 340 194 C80 196 8 180 8 100 C8 22 80 8 440 12' fill='none' stroke='%23D2483C' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")}}
+:root[data-theme="dark"]{--c-film:#2E2A27;--c-rebate:#2E2925;--c-paper:#EDE6DA;--c-dim:#A9A196;--c-mark:#D2483C;--c-marktext:#E0584A;--c-line:#FFB300;--c-doorbg:#EDE6DA;--c-doortx:#14110E;
+  --c-circle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 200' preserveAspectRatio='none'%3E%3Cpath d='M340 6 C600 2 672 22 672 100 C672 180 600 196 340 194 C80 196 8 180 8 100 C8 22 80 8 440 12' fill='none' stroke='%23D2483C' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")}
+
+/* ===== film strip (D2's strip, same geometry) ===== */
+.lr-bar{position:sticky;top:0;z-index:50;background:var(--ground);padding:16px 0;transition:transform 180ms ease;will-change:transform;font-family:var(--c-label)}
+.lr-bar.is-hidden{transform:translateY(-100%)}
+body.recOpen .lr-bar{transform:translateY(-100%)!important;visibility:hidden!important;pointer-events:none!important}   /* the phone record sheet is a layer over the page: the strip stays away while it is open */
+@media (prefers-reduced-motion:reduce){.lr-bar{transition:none}}
+.lr-strip{--hw:12px;--hh:8px;--hp:24px;--hy:7px;--sh:64px;--pad:max(24px,calc((100% - 1200px) / 2 + 24px));--cw:52px;
+  position:relative;height:var(--sh);margin:0;background-color:var(--c-film);
+  background-image:linear-gradient(90deg,var(--ground) var(--hw),transparent var(--hw)),linear-gradient(90deg,var(--ground) var(--hw),transparent var(--hw));
+  background-size:var(--hp) var(--hh),var(--hp) var(--hh);
+  background-position:0 var(--hy),0 calc(var(--sh) - var(--hy) - var(--hh));background-repeat:repeat-x;
+  border-block:1px solid var(--c-rebate)}
+.lr-can{position:absolute;left:var(--pad);top:50%;transform:translateY(-50%);height:96px;width:var(--cw);z-index:2;display:block}
+.lr-can img{display:block;height:100%;width:100%;object-fit:contain}
+.lr-can:focus-visible{outline:3px solid var(--c-yellow);outline-offset:4px}
+.lr-in{position:absolute;left:0;right:0;top:calc(var(--hy) + var(--hh) + 3px);bottom:calc(var(--hy) + var(--hh) + 3px);
+  display:flex;align-items:center;gap:24px;padding-left:calc(var(--pad) + var(--cw) + 20px);padding-right:var(--pad);white-space:nowrap}
+.lr-t{flex:none;font-family:var(--c-label);font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-yellow)}
+.lr-in nav{flex:none;display:flex;gap:16px;margin-left:auto}
+.lr-in nav a{position:relative;flex:none;display:flex;align-items:center;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#EDE6DA;text-decoration:none;padding:3px 0;border-bottom:3px solid transparent}
+.lr-in nav a::after{content:"";position:absolute;inset:-10px -8px}
+.lr-in nav a:hover,.lr-in nav a:focus-visible{border-bottom-color:#EDE6DA}
+.lr-in nav a[aria-current]{color:var(--c-yellow);border-bottom-color:var(--c-yellow)}
+.lr-s{display:none}
+@media (max-width:1239px){.lr-l{display:none}.lr-s{display:inline}}
+@media (max-width:560px){
+  .lr-bar{padding:8px 0}
+  .lr-strip{--hw:9px;--hh:6px;--hp:18px;--hy:5px;--sh:108px;--pad:16px;--cw:42px}
+  .lr-can{height:84px}
+  .lr-in{display:grid;grid-template-rows:28px 44px;align-content:center;gap:0;padding-left:calc(var(--pad) + var(--cw) + 12px);padding-right:12px;top:calc(var(--hy) + var(--hh) + 2px);bottom:calc(var(--hy) + var(--hh) + 2px)}
+  .lr-t{font-size:13px;letter-spacing:.03em;line-height:28px}
+  .lr-in nav{margin-left:0;gap:0;justify-content:space-between;align-items:stretch}
+  .lr-in nav a{min-height:44px;padding:0 4px;border-bottom-width:3px}
+  .lr-in nav a::after{inset:0 -4px}
+  .lr-l{display:none}.lr-s{display:inline}
+}
+
+/* ===== head: same container and look as the inner pages ===== */
+.wrap{box-sizing:border-box;max-width:1200px;margin-inline:auto}
+body{margin:0}   /* the essay had the browser's 8px body margin; the strip is full width like the inner pages */
+@media (min-width:821px){.wrap{padding-inline:24px;padding-block:48px 64px}}
+.mast{max-width:none;margin:0 0 8px;justify-items:center;text-align:center;gap:16px}
+.mast h1{font-family:var(--c-display);font-weight:800;font-size:clamp(44px,8.4vw,112px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em;margin:0 0 8px;max-width:20ch;text-wrap:balance}
+.mast .stand{font-family:var(--c-body);font-size:clamp(19px,2vw,24px);line-height:1.45;max-width:46rem;margin-inline:auto}
+.mast .meta{font-family:var(--c-label);font-size:14px;color:var(--c-dim)}
+.mast .meta b{color:var(--ink)}
+/* the note: the circled note of the How page, drawn with CSS only (the same hand-drawn oval as a background image) */
+.authnote{position:relative;max-width:50rem;margin:36px auto 28px;padding:52px 64px;border:0;background:none;text-align:left}
+.authnote::before{content:"";position:absolute;inset:-14px;background:var(--c-circle) center/100% 100% no-repeat;pointer-events:none}
+.authnote b{display:block;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-marktext);margin-bottom:8px}
+.authnote p{font-size:21px;line-height:1.5;font-style:italic;margin:0;max-width:none}
+.authnote p+p{margin-top:14px}
+/* reading column: the text and its record link sit as one unit centred in the 1200 container (left and right whitespace equal) */
+@media (min-width:821px){
+  :root{--lr-unit:1080px}
+  #essay .pgrid{width:min(100%,var(--lr-unit));margin-inline:auto;grid-template-columns:minmax(0,70%) minmax(0,1fr)}
+  #essay .photo{width:calc(min(100%,var(--lr-unit)) * .7);max-width:none;margin-left:calc((100% - min(100%,var(--lr-unit))) / 2);margin-right:0}
+  #essay .sech{width:min(100%,var(--lr-unit));box-sizing:border-box;margin-inline:auto!important}
+  .guide{margin-inline:auto}
+}
+@media (max-width:820px){.wrap{padding-block:32px 56px}.authnote{padding:40px 32px}}
+@media (max-width:480px){.authnote{padding:48px 40px;margin-inline:10px}.authnote p{font-size:19px}}
+
+/* ===== closing note: where this stands ===== */
+.lr-close{max-width:44rem;margin:56px auto 0;padding:28px 24px 0;border-top:1px solid var(--c-line);font-family:var(--c-label)}
+.lr-close b{display:block;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-marktext);margin-bottom:10px}
+.lr-close p{font-family:var(--serif);font-size:19px;line-height:1.55;margin:0}
+.lr-close a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--c-line)}
+.lr-close a:hover,.lr-close a:focus-visible{text-decoration-thickness:3px}
+/* ===== door: next in the record (D2's component) ===== */
+.lr-next{max-width:1200px;margin:0 auto;padding:48px 24px 24px;display:grid;gap:16px;font-family:var(--c-label)}
+.lr-door{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:112px;padding:24px 48px;background:var(--c-doorbg);color:var(--c-doortx);text-decoration:none;border-bottom:6px solid var(--c-yellow)}
+.lr-door:hover,.lr-door:focus-visible{outline:3px solid var(--c-yellow);outline-offset:3px}
+.lr-dl{display:block;font-family:var(--c-label);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.lr-dn{display:block;font-family:var(--c-display);font-weight:800;font-size:clamp(32px,5.2vw,60px);line-height:1;text-transform:uppercase}
+.lr-da{font-family:var(--c-display);font-weight:800;font-size:56px;line-height:1}
+.lr-dl+.lr-dn{margin-top:4px}
+.lr-backs{display:flex;flex-wrap:wrap;gap:8px 48px;justify-content:center}
+.lr-back{display:inline-flex;align-items:center;min-height:44px;font-family:var(--c-label);font-size:15px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--c-line);text-decoration-thickness:2px;text-underline-offset:3px}
+.lr-back:hover,.lr-back:focus-visible{text-decoration-thickness:4px}
+@media (max-width:899px){.lr-door{padding:24px;min-height:96px}.lr-da{font-size:40px}}
+@media (max-width:820px){.lr-next{padding:32px 16px calc(130px + env(safe-area-inset-bottom))}}   /* clears the phone dock and peek bar */
+
+/* strip title is a link to the landing page */
+a.strip-t,a.lr-t{text-decoration:none;color:var(--c-yellow);display:inline-flex;align-items:center;min-height:28px}
+a.strip-t:hover,a.lr-t:hover,a.strip-t:focus-visible,a.lr-t:focus-visible{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+a.strip-t:focus-visible,a.lr-t:focus-visible{outline:3px solid var(--c-yellow);outline-offset:3px}
 </style>
 
+<div class="lr-bar" id="lr-top"><div class="lr-strip"><a class="lr-can" href="../"><img src="../assets/canister.webp" width="509" height="900" alt="The Latent Record, home"></a><div class="lr-in"><a class="lr-t" href="../">GEORGE EASTMAN &middot; THE LATENT RECORD</a><nav aria-label="Pages of this site"><a href="./" aria-current="page"><span class="lr-l">The essay</span><span class="lr-s">Essay</span></a><a href="../how/"><span class="lr-l">How it was made</span><span class="lr-s">How</span></a><a href="../sources/"><span class="lr-l">The sources</span><span class="lr-s">Sources</span></a><a href="../thesis/"><span class="lr-l">Ten ideas one thesis</span><span class="lr-s">Ideas</span></a><a href="../cut/"><span class="lr-l">What was cut</span><span class="lr-s">Cut</span></a></nav></div></div></div>
+<script>
+(function(){
+var MODES={quick:{UP_SHOW:40,DOWN_HIDE:8,TOLERATE_DOWN:0},intentional:{UP_SHOW:450,DOWN_HIDE:40,TOLERATE_DOWN:40}};
+var TOP_ZONE=4,LOCK_MS=700;
+var root=document.documentElement,bar=document.querySelector('.lr-bar');if(!bar)return;
+var q=(new URLSearchParams(location.search)).get('reveal');
+var mode=MODES[q]?q:(MODES[root.getAttribute('data-reveal')]?root.getAttribute('data-reveal'):'intentional');
+var M=MODES[mode],last=window.pageYOffset,up=0,down=0,hidden=false,tick=false,lockUntil=0;
+function set(h){if(h===hidden)return;hidden=h;bar.classList.toggle('is-hidden',h)}
+function step(){
+  tick=false;var y=Math.max(0,window.pageYOffset),dy=y-last;last=y;
+  if(y<=TOP_ZONE){up=0;down=0;set(false);return}
+  if(bar.contains(document.activeElement)){set(false);return}
+  if(Date.now()<lockUntil){up=0;down=0;return}
+  if(dy>0){down+=dy;if(down>=M.DOWN_HIDE){set(true);up=0}}
+  else if(dy<0){up+=-dy;down=0;if(up>=M.UP_SHOW){set(false);up=0}}
+}
+window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(step)}},{passive:true});
+function lock(){lockUntil=Date.now()+LOCK_MS;up=0;down=0}
+window.addEventListener('hashchange',lock);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a)lock()});
+bar.addEventListener('focusin',function(){set(false)});
+if(location.hash)lock();
+})();
+</script>
 <div class="wrap">
   <div class="mast">
-    <div class="kick"><a href="../index.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor">← The Latent Record</a></div>
-    <nav class="pages" aria-label="Pages of this site"><a href="index.html" aria-current="page">The essay</a><a href="../how/">How it was made</a><a href="../thesis/">The thesis</a><a href="../cut/">What was cut</a><a href="../sources/">The sources</a></nav>
     <h1>Forgetting the Man Who Manufactured Memory</h1>
-    <p class="stand">An essay on George Eastman, written with Claude and published with every draft of every paragraph.</p>
-    <div class="meta"><b style="color:var(--ink)">Evan Monahan</b> · written with Claude, 3 to 21 August 2026 · eman880@gmail.com · October 2026</div><aside class="authnote"><b>Why I wrote it</b><p>I’m from Rochester, New York, where George Eastman built Kodak. His company changed the world and shaped where I’m from, and I’m afraid he doesn’t get the recognition he deserves outside Rochester. I wrote this essay with Claude to tell his whole story, and this page shows every draft it took.</p></aside>
+    <p class="stand">A first step toward telling George Eastman’s whole story, written with Claude and published with every draft of every paragraph.</p>
+    <div class="meta"><b style="color:var(--ink)">Evan Monahan</b> · written with Claude, 3 to 21 August 2026 · eman880@gmail.com · October 2026</div><aside class="authnote"><b>Why I wrote it</b><p>I grew up in Rochester, New York, where George Eastman built Kodak. Outside Rochester he is mostly known for the company’s collapse, eighty years after his death, and I think that leaves out most of what he did.</p><p>I wrote this essay with Claude to give a fuller account. Claude drafted most of the sentences; I chose the argument and made every decision. This page keeps every draft of every paragraph, with the notes and messages that came before each change.</p></aside>
   </div>
   <div id="essay"></div>
 </div>
+<section class="lr-close" aria-label="Where this stands"><b>Where this stands</b><p>This essay is a first step. It sets out what I think Eastman’s life adds up to, in about 5,600 words, and leaves most of the evidence for later work. What that work becomes is still open. If you know the Kodak or Eastman record and see something I have wrong or missed, I would like to hear it: <a href="mailto:eman880@gmail.com">eman880@gmail.com</a>.</p></section>
+<section class="lr-next" aria-label="Next in the record"><a class="lr-door" href="../how/"><span class="lr-dl">Next in the record</span><span class="lr-dn">How it was made</span><span class="lr-da" aria-hidden="true">&rarr;</span></a><div class="lr-backs"><a class="lr-back" href="#">Back to the top</a></div></section>
 <div id="pvhome" hidden><div id="pv">
   <div class="vstrip" id="vstrip" hidden></div>
   <div class="pvbar"><span class="lab" id="title"></span><button type="button" id="pvclose">Close the record ×</button></div>
@@ -552,4 +916,4 @@ addEventListener('hashchange',go); go();
 })();
 </script>
 
-<link rel="stylesheet" href="../css/navpeek.css"><link rel="stylesheet" href="essay-enhance.css?v=10"><script src="essay-enhance.js?v=17"></script><link rel="stylesheet" href="record-sheet.css?v=4"><link rel="stylesheet" href="record-sheet2.css?v=6"><script src="record-sheet.js?v=10"></script><script src="record-sheet2.js?v=14"></script><script src="../js/navpeek.js" defer></script>
+<script src="essay-enhance.js?v=17"></script><script src="record-sheet.js?v=10"></script><script src="record-sheet2.js?v=14"></script>

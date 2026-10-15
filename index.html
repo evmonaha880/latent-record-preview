@@ -1,5 +1,230 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>The Latent Record</title><meta name="robots" content="noindex,nofollow"><meta name="description" content="An essay about George Eastman, written with Claude, shown as it was made: every draft, every note, every cut."><meta property="og:title" content="The Latent Record"><meta property="og:description" content="An essay about George Eastman, written with Claude, shown as it was made: every draft, every note, every cut."><meta property="og:type" content="website"><meta property="og:image" content="https://evmonaha880.github.io/latent-record-preview/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23A12A22%22/%3E%3Cpath d=%22M9 7h5v14h9v4H9z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
-<link rel="preload" as="font" type="font/woff2" href="fonts/jost-latin.woff2" crossorigin><link rel="preload" as="image" href="photos/g-bettmann-camera.jpg"><link rel="stylesheet" href="base.css?v=2"><link rel="stylesheet" href="fork.css?v=46"></head><body>
+<link rel="preload" as="font" type="font/woff2" href="fonts/jost-latin.woff2" crossorigin><link rel="preload" as="image" href="photos/g-bettmann-camera.jpg"><style>@font-face{font-family:Schola;src:url(fonts/schola-regular.woff2);font-weight:400}
+@font-face{font-family:Schola;src:url(fonts/schola-italic.woff2);font-weight:400;font-style:italic}
+@font-face{font-family:Schola;src:url(fonts/schola-bold.woff2);font-weight:700}
+@font-face{font-family:Franklin;src:url(fonts/franklin-400.woff2);font-weight:400}
+@font-face{font-family:Franklin;src:url(fonts/franklin-500.woff2);font-weight:500}
+@font-face{font-family:Franklin;src:url(fonts/franklin-600.woff2);font-weight:600}
+@font-face{font-family:Charter;src:url(fonts/charter-roman.woff2);font-weight:400}
+@font-face{font-family:Charter;src:url(fonts/charter-italic.woff2);font-weight:400;font-style:italic}
+@font-face{font-family:Charter;src:url(fonts/charter-bold.woff2);font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ground:#FBFBF8;--ink:#1A1918;--muted:#5F5B57;--surface:#EFEBE3;--red:#A12A22;--yellow:#FFB300;--rule:#D9D6D0;--lilac:#DDD0EE;--lilac2:#8E78B0;--chat:#6F7F8C;--chatsoft:#E4E9ED;--serif:Schola,Charter,Georgia,serif;--sans:Franklin,"Helvetica Neue",Arial,sans-serif}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+@font-face{font-family:Jost;src:url(fonts/jost-latin.woff2) format('woff2');font-weight:500 700;font-style:normal;font-display:swap}
+</style><style>:root{--ground:#FBFBF8;--ink:#1A1918;--muted:#5F5B57;--rule:#D9D6D0;--red:#A12A22;--ky:#FFCD1E;--hl:#E4E1DA;--serif:Schola,Charter,Georgia,serif;--sans:Franklin,"Helvetica Neue",Arial,sans-serif;--geo:Jost,Futura,"Century Gothic",sans-serif}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans)}
+.topbar{position:fixed;left:0;right:0;top:0;height:5px;background:var(--red);z-index:20}
+.shell{display:grid;grid-template-columns:30vw minmax(0,1fr);min-height:100vh}
+.photo{position:sticky;top:0;height:100vh;overflow:hidden;background:#111}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 14%;filter:grayscale(1) contrast(1.12);display:block}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.0) 55%,rgba(0,0,0,.62))}
+.photo figcaption{position:absolute;left:28px;bottom:26px;right:28px;color:#FBFBF8;z-index:2;font:500 14px/1.4 var(--sans);letter-spacing:.02em}
+.photo figcaption b{display:block;font:600 12px var(--geo);letter-spacing:.2em;text-transform:uppercase;color:var(--ky);margin-bottom:6px}
+.main{padding:26px 56px 18px 60px;min-width:0}
+.mast{display:flex;justify-content:space-between;align-items:baseline}
+.wm{font:600 14px var(--geo);letter-spacing:.2em;text-transform:uppercase}
+.howlink{font:500 14px var(--geo);border-bottom:1px solid currentColor;color:inherit;text-decoration:none}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,3.7vw,54px);line-height:1.04;letter-spacing:-.016em;margin-top:22px;max-width:760px}
+.sub{font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.7vw,24px);line-height:1.3;margin-top:12px;max-width:700px}
+.concept{font-family:var(--serif);font-size:clamp(15px,min(1.6vw,2.2vh),23px);line-height:1.38;color:var(--ink);margin-top:12px;max-width:760px}.concept b{font-weight:700}.concept em{font-style:italic}
+.stage{margin-top:12px;border-top:2px solid var(--ink);padding-top:10px}
+.sh{display:flex;align-items:center;gap:16px;min-height:0}
+.ctl{margin-left:auto;display:flex;gap:6px}.mini{font:500 13px var(--geo);background:none;border:1px solid #b9b3a7;border-radius:20px;padding:7px 14px;color:var(--muted);cursor:pointer;min-height:34px}
+.body{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(250px,1fr);gap:30px;margin-top:8px;align-items:start}
+.center{min-width:0}
+.stamp{display:none}
+.para{font-family:Charter,Georgia,serif;font-size:clamp(17px,min(2.1vw,3.05vh),30px);line-height:1.34;min-height:7em;transition:opacity .6s}.para.fade{opacity:0}
+.para .d,.para .n{display:inline;font-size:1em;white-space:normal}
+.para .d{color:var(--red);text-decoration:line-through;text-decoration-thickness:1.5px;transition:font-size 1s cubic-bezier(.5,0,.2,1),opacity .9s}
+.para .d.gone{font-size:0;opacity:0}
+.para .n{transition:font-size .8s cubic-bezier(.2,.8,.2,1),opacity .7s;background:var(--hl);border-bottom:1px solid #B5B0A5;animation:settle 3.2s ease 1.6s forwards}
+.para .n.pre{font-size:0;opacity:0}@keyframes settle{to{background:transparent;border-bottom-color:transparent}}
+.para.final{animation:gl 1.8s ease}@keyframes gl{40%{text-shadow:0 0 22px rgba(255,205,30,.7)}}
+.m{min-width:0}.stack{display:flex;flex-direction:column;gap:12px;min-height:0}
+.card{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1),filter .8s}.card.in{opacity:1;transform:none}
+.card.take{opacity:0!important;transform:translateX(var(--dx,0)) scale(.95)!important;filter:blur(2px)}
+.cl{font:600 11.5px var(--geo);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}.cl span{font-weight:400;letter-spacing:.04em;text-transform:none;opacity:.7;margin-left:6px}
+.card .ct{min-height:1em}
+.note,.chat{background:#fff;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:12px 16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.note .cl,.chat .cl{color:var(--red)}.note .ct,.chat .ct{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.3}
+.claude,.both{background:#1A1918;color:#FBFBF8;border-radius:4px 16px 16px 16px;padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,monospace}
+.claude .cl{color:var(--ky);display:flex;align-items:center;gap:8px}
+.claude.working .cl:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ky);animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
+.claude.done .cl:before{content:"✓";color:var(--ky);font-size:13px}
+.claude .ct{font:400 13.5px/1.55 ui-monospace,Menlo,Consolas,monospace}
+.steps{display:flex;flex-direction:column;gap:4px}.st{opacity:.35;transition:opacity .4s}.st.on{opacity:1}.st.on:after{content:'…';animation:bl 1s infinite}.st.done{opacity:.55}.st.done:after{content:' ✓';animation:none;color:var(--ky)}.st.done.on:after{content:' ✓'}
+.bar{margin-top:10px;height:3px;background:#383532;border-radius:2px;overflow:hidden}.bar i{display:block;height:100%;width:38%;background:var(--ky);border-radius:2px;animation:slide 1.3s ease-in-out infinite}@keyframes slide{0%{margin-left:-40%}100%{margin-left:105%}}@keyframes bl{50%{opacity:.25}}
+.res{display:flex;gap:8px;flex-wrap:wrap}.chip{font:600 13px ui-monospace,Menlo,Consolas,monospace;padding:6px 10px;border-radius:4px}.chip.m{background:rgba(255,111,97,.18);color:#FF8D82}.chip.p{background:rgba(255,205,30,.2);color:#FFD84D}
+.ctarow{display:flex;align-items:center;gap:12px 18px;flex-wrap:nowrap;margin-top:10px}
+.cta{display:flex;align-items:center;gap:18px;background:#1A1918;color:#FBFBF8;padding:8px 8px 8px 22px;border-radius:999px;text-decoration:none;box-shadow:0 14px 26px -12px rgba(0,0,0,.5)}
+.cta strong{display:block;font:600 17px var(--geo);white-space:nowrap}.cta small{display:block;font:400 12px var(--sans);color:#bdb8b0;margin-top:2px}
+.cta .ar{width:40px;height:40px;border-radius:50%;background:var(--ky);display:flex;align-items:center;justify-content:center}
+.dl{display:inline-flex;align-items:center;font:600 15px var(--geo);border:2px solid #1A1918;border-radius:999px;padding:9px 20px;color:inherit;text-decoration:none}.dl:hover{background:#1A1918;color:var(--ky)}
+.oneline{font-size:13px;color:var(--muted);max-width:250px;line-height:1.35}
+.ov{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(10,8,6,.55);z-index:30;padding:20px}.ov.show{display:flex}
+.sheet{max-width:620px;width:100%;padding:30px 32px;background:var(--ground);border-radius:6px}.sheet h2{font:400 28px var(--serif)}
+.lg{margin:16px 0}.lr{display:flex;gap:14px;align-items:center;margin-bottom:12px;font-size:16px;line-height:1.45}
+.sw{flex:none;min-width:34px;height:26px;display:inline-flex;align-items:center;justify-content:center;font:600 12px var(--sans);border-radius:3px;padding:0 6px}
+.sw-note{border-left:4px solid var(--red);min-width:10px;background:#fff}.sw-cl{background:#1A1918;color:#FFCD1E}.sw-ins{background:var(--hl)}.sw-del{text-decoration:line-through;color:var(--red)}
+.gotit{font:600 16px var(--geo);padding:12px 26px;border:0;border-radius:2px;cursor:pointer;background:#1A1918;color:#FBFBF8}
+@media(max-width:1100px){.shell{grid-template-columns:1fr}.photo{position:relative;height:230px}.photo img{object-position:50% 12%}.photo figcaption{bottom:14px;left:20px}.main{padding:22px 20px 36px}.body{grid-template-columns:1fr;gap:12px}.dl,.cta{width:100%}.dl{justify-content:center}.cta{justify-content:space-between}}
+@media(max-width:1250px){.ctarow{flex-wrap:wrap}.oneline{max-width:420px}}
+@media(max-width:1100px){.ctarow{flex-direction:column;align-items:stretch}.oneline{max-width:none}}
+
+.sketchmode .photo{background:#FBFBF8;border-right:1px solid #cfc9bb}.sketchmode .photo:after{display:none}.sketchmode .photo figcaption{color:#1A1918;background:rgba(251,251,248,.92);padding:10px 12px;left:20px;right:20px;bottom:20px;z-index:4}.sketchmode .photo figcaption b{color:#A12A22}
+
+.lm{position:absolute;inset:0;background:#FBFBF8;display:flex;flex-direction:column;align-items:center;padding:30px 20px 120px;z-index:1}
+.lm .mk{position:absolute;right:12px;top:12px;font:700 11px Helvetica,Arial;letter-spacing:.14em;background:#FFCD1E;color:#111;padding:4px 8px;border-radius:3px;z-index:5}
+.lm .stk{position:relative}.lm .stk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 1.1s}
+.lm .tile{width:260px;height:346px;margin-top:6px;border:1px solid #1A1918}.lm .prev{width:260px;height:346px;border:1px solid #cfc9bb}
+.lm .lt1{font:700 11px Helvetica,Arial;letter-spacing:.16em;text-transform:uppercase;color:#1A1918;margin-top:14px;align-self:flex-start}
+.lm .lt2{font:12px Helvetica,Arial;color:#5F5B57;margin:6px 0 4px;align-self:flex-start}.lm .ar{font:600 11px Helvetica,Arial;letter-spacing:.14em;text-transform:uppercase;color:#A12A22;margin:8px 0 8px}
+.lm-steps .lm{padding:0;background:#222}.lm-steps .stk.full{position:absolute;inset:0;width:100%;height:100%}
+.lm-steps .sbar{position:absolute;left:0;right:0;top:0;padding:10px 14px;font:600 12px Helvetica,Arial;letter-spacing:.08em;background:rgba(251,251,248,.92);color:#111;z-index:3}
+.lm-steps .photo:after,.lm-latent .photo:after{display:none}
+.lm-latent .photo figcaption,.lm-steps .photo figcaption{color:#1A1918;background:rgba(251,251,248,.94);padding:10px 12px;left:14px;right:14px;bottom:14px;z-index:4;font-size:12px}.lm-latent .photo figcaption b,.lm-steps .photo figcaption b{color:#A12A22;font-size:11px}
+.lm .tile img{filter:none!important}
+.tw-mode .photo:after{display:none}.tw-mode .photo{background:#FBFBF8;border-right:1px solid #cfc9bb}
+.twrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.twh{display:flex;flex-direction:column;min-width:0}
+.twc{font:13px/1.35 Helvetica,Arial;color:#1A1918;margin-top:7px;min-height:52px}
+.twn{font:11px/1.4 Helvetica,Arial;color:#5b564c;margin:2px 0 0;padding-top:8px;border-top:1px solid #cfc9bb}
+.tw{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:20px 20px 18px;z-index:2;background:#FBFBF8}
+.twhd{margin-bottom:2px}.twh1{font:700 12px Helvetica,Arial;letter-spacing:.16em;text-transform:uppercase;color:#1A1918}.twh2{font:13px/1.35 Helvetica,Arial;color:#5b564c;margin-top:3px}
+.twl{display:flex;flex-direction:column;align-items:flex-start;gap:1px;border-top:3px solid #1A1918;padding-top:6px}.twl b{font:800 24px/1 Helvetica,Arial;letter-spacing:.04em;text-transform:uppercase;color:#1A1918}.twl span{font:12px/1.3 Helvetica,Arial;letter-spacing:.02em;color:#5b564c}
+.twh.ai .twl{border-top-color:#FFCD1E}
+.twt{font:italic 600 15px/1.2 Georgia,serif;color:#1A1918;margin:6px 0 7px;min-height:36px}
+.twf{position:relative;width:100%;aspect-ratio:1/2;max-height:calc(100vh - 340px);border:1px solid #1A1918;background:#E4E1DA;overflow:hidden}
+.twf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:opacity 1.1s;filter:none!important}
+.twf.film{background:#161513;border-color:#161513}
+.twf.film:before,.twf.film:after{content:"";position:absolute;top:0;bottom:0;width:16px;z-index:3;background:#161513 url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='20'><rect x='4' y='5' width='8' height='10' rx='2' fill='%23F6F2E9'/></svg>") repeat-y}
+.twf.film:before{left:0}.twf.film:after{right:0}
+.twf.film img{left:16px;width:calc(100% - 32px)}
+.twf.ai:before{content:"AI-made";position:absolute;left:7px;top:7px;z-index:3;background:#FFCD1E;color:#111;font:700 10px Helvetica,Arial;letter-spacing:.08em;padding:3px 7px;border-radius:3px}
+@media(max-width:1100px){.tw-mode .photo{height:auto;position:relative}.tw{position:relative;inset:auto;padding:16px 20px 14px}.twf{aspect-ratio:3/4;max-height:none}.twf img{object-position:50% 15%}.twc{font-size:12.5px;min-height:50px}.twl b{font-size:21px}}
+
+/* fit-to-screen: cards and buttons shrink with the viewport height so the whole page shows without scrolling (desktop) */
+.note .ct,.chat .ct{font-size:clamp(14.5px,2.35vh,20px)}
+.note,.chat{padding:clamp(8px,1.3vh,12px) 14px}
+.claude,.both{padding:clamp(9px,1.3vh,14px) 14px}
+.claude .ct{font-size:clamp(11.5px,1.6vh,13.5px)}
+.stack{gap:clamp(8px,1.2vh,12px)}
+@media(max-height:800px) and (min-width:1101px){.main{padding-top:16px;padding-bottom:10px}.roll{margin-top:6px}.concept{margin-top:8px}.stage{margin-top:8px;padding-top:8px}.ctarow{margin-top:8px}.cta{padding:6px 6px 6px 18px}.cta strong{font-size:15.5px}.cta small{font-size:11px}.cta .ar{width:34px;height:34px}.dl{padding:7px 16px;font-size:14px}.oneline{font-size:12px;max-width:230px}.body{grid-template-columns:minmax(0,1.5fr) minmax(250px,1fr)}.cl{margin-bottom:3px}}
+/* static layout: the header row keeps a two-line caption height and the button row is pinned to the bottom of the screen, so nothing below the roll moves when the sentence or the cards change size */
+@media(min-width:1101px){.main{display:flex;flex-direction:column;min-height:100vh}.ctarow{margin-top:auto;padding-top:10px}}
+
+/* ---- 10/06 rebuild: real 35mm strip + one counter ---- */
+/* Roll: canister at the left, film strip leaving its velvet slot. Strip height = slot length (.75 of the canister); the strip is centred on the slot (52% down the canister). Film geometry in fractions of strip height H (35mm = H): perf 2.8 x 1.98mm -> .08H x .0566H, pitch 4.75mm -> .136H, frame pitch 38mm -> 1.086H, frame gap 2mm -> .057H, perf centre 2.8mm from the edge. */
+.roll{--ch:clamp(200px,28vh,330px);--sh:calc(var(--ch)*.75);--perf:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 475 198' preserveAspectRatio='none'><rect x='97' y='0' width='280' height='198' rx='46' fill='%23F6F2E9'/></svg>");position:relative;display:flex;align-items:flex-start;margin:24px -56px 2px -4px}
+.can{position:relative;flex:none;height:var(--ch);z-index:3;filter:drop-shadow(0 12px 14px rgba(0,0,0,.26))}
+.can img{display:block;height:100%;width:auto}
+.strip{position:relative;flex:1;min-width:0;height:var(--sh);margin-top:calc(var(--ch)*.52 - var(--sh)/2);margin-left:calc(var(--ch)*-.06);z-index:1;overflow:hidden;
+ background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 30%,rgba(0,0,0,.28)),repeating-linear-gradient(90deg,transparent 0,transparent calc(var(--sh)*1.029),#2c2219 calc(var(--sh)*1.029),#2c2219 calc(var(--sh)*1.086)) 0 50%/100% calc(100% - var(--sh)*.314) no-repeat,#15110d;
+ display:flex;animation:feed 1.2s cubic-bezier(.2,.7,.2,1) both}
+.strip:before,.strip:after{content:"";position:absolute;left:0;right:0;height:calc(var(--sh)*.0566);background:var(--perf) 0 0/calc(var(--sh)*.136) 100% repeat-x}
+.strip:before{top:calc(var(--sh)*.0517)}.strip:after{bottom:calc(var(--sh)*.0517)}
+.edge{position:absolute;left:calc(var(--ch)*.08);right:0;white-space:nowrap;overflow:hidden;font:600 calc(var(--sh)*.04)/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;color:#d9902f;opacity:.75}
+.et{top:calc(var(--sh)*.118)}.eb{bottom:calc(var(--sh)*.118)}
+.tt{display:flex;flex-direction:column;justify-content:center;width:100%;padding:calc(var(--sh)*.17) 36px calc(var(--sh)*.17) calc(var(--ch)*.12)}
+.strip h1{margin:0;max-width:none;font:600 clamp(24px,min(2.9vw,4.2vh),42px)/1.06 var(--geo);letter-spacing:.04em;text-transform:uppercase;color:#FBFBF8}
+.strip h1 b{display:block;font-weight:700;color:var(--ky)}
+.strip .sub{margin:calc(var(--sh)*.04) 0 0;max-width:720px;font:500 clamp(13.5px,min(1.2vw,1.75vh),18px)/1.35 var(--geo);font-style:normal;color:#E4E1DA}
+.sout{display:none}
+@keyframes feed{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media(prefers-reduced-motion:reduce){.strip{animation:none}}
+@media(max-width:1100px){.roll{--ch:215px;margin:20px -20px 4px -2px}.tt{padding-right:16px}.strip h1{font-size:clamp(17px,3.6vw,30px)}.strip .sub{font-size:clamp(13px,2.2vw,16px)}}
+@media(max-width:520px){.roll{--ch:215px}.strip h1{font-size:16px;letter-spacing:.01em}.sin{display:none}.sout{display:block;font:italic 400 16px/1.35 var(--serif);color:var(--ink);margin:6px 0 0}}
+
+/* Counter: the seven numbered pages ARE the counter; NOW sits under the one that is playing. Controls share the row. */
+.sh{display:flex;align-items:flex-start;gap:16px}
+.pgrow{display:flex;gap:9px;align-items:flex-start;padding:2px 0 22px}
+.pgrow i{position:relative;display:flex;align-items:center;justify-content:center;width:38px;height:46px;border:2px solid #b3aea6;border-radius:3px;background:#fff;transition:background .5s,border-color .5s,transform .5s}
+.pgrow i b{font:600 17px var(--geo);color:#8a847b;transition:color .5s}
+.pgrow i:after{content:"";position:absolute;right:-2px;top:-2px;width:9px;height:9px;background:var(--ground);border-left:2px solid #b3aea6;border-bottom:2px solid #b3aea6;transition:border-color .5s}
+.pgrow i.d{background:#E4E1DA;border-color:#7d776f}.pgrow i.d b{color:#5F5B57}.pgrow i.d:after{border-color:#7d776f}
+.pgrow i.on{background:var(--hl);border-color:#1A1918;transform:translateY(-3px)}.pgrow i.on b{color:#1A1918}.pgrow i.on:after{border-color:#1A1918}
+.pgrow i small{display:none;position:absolute;top:calc(100% + 7px);left:50%;transform:translateX(-50%);font:700 11px var(--geo);letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.pgrow i.on small{display:block}
+.sh .ctl{margin:6px 0 0 auto;gap:8px}
+.mini{min-height:38px;padding:8px 16px;font-size:14px}
+.stat{margin:0 0 8px;border-left:3px solid var(--red);padding:2px 0 2px 12px;font:600 clamp(16px,1.35vw,19px)/1.3 var(--geo);color:var(--red);min-height:1.4em}
+@media(max-width:1250px){.stat{min-height:2.7em}}
+@media(max-width:1100px){.sh{flex-wrap:wrap;row-gap:4px}.pgrow{flex:1 1 100%;gap:6px;padding-bottom:22px}.pgrow i{flex:1;width:auto;min-width:0;height:44px}.sh .ctl{order:3;margin:0;width:100%}.mini{min-height:44px;padding:8px 20px}.para{min-height:0}.stack{min-height:0}.stat{min-height:2.7em}}
+@media(max-height:760px) and (min-width:1101px){.roll{--ch:200px;margin-top:10px}.strip h1{font-size:26px}.strip .sub{font-size:13px}.para{font-size:20.5px}.note .ct,.chat .ct{font-size:14px}.concept{font-size:14.5px}.main{padding-top:12px}.pgrow i{height:40px;width:34px}.pgrow{padding-bottom:20px}}
+/* photo: bigger caption; phone hero is taller and framed on the camera and face */
+.photo figcaption{font-size:16px}.photo figcaption b{font-size:13px}
+@media(max-width:1100px){.photo{height:290px}.photo img{object-position:50% 6%!important}}
+
+.pgrow i small{white-space:nowrap;letter-spacing:.1em}
+.pgrow i:first-child small{left:0;transform:none}.pgrow i:last-child small{left:auto;right:0;transform:none}
+
+/* 10/07: buttons never move. Desktop: the column is exactly one screen tall, the stage takes what is left and clips, the button row is fixed at the bottom. Phone: the button row sits above the animation, so nothing above it changes size. */
+@media(min-width:1101px){.main{height:100vh;min-height:0;overflow:hidden}.stage{flex:1 1 auto;min-height:0;overflow:hidden}.ctarow{flex:none;margin-top:0;padding-top:10px}}
+@media(max-width:1100px){.main{display:flex;flex-direction:column}.main>.stage{order:2}.main>.ctarow{order:1;margin:14px 0 6px}}
+@media(max-height:860px) and (min-width:1101px){.roll{--ch:26vh;margin-top:14px}}
+
+/* 10/07 smooth cards: transform/opacity only for entry and exit, space collapses with a height transition, text never changes a card's height */
+.card{will-change:opacity,transform;transition:opacity .7s cubic-bezier(.22,.8,.3,1),transform .8s cubic-bezier(.22,.8,.3,1),height .6s cubic-bezier(.4,0,.2,1),padding .6s cubic-bezier(.4,0,.2,1),margin .6s cubic-bezier(.4,0,.2,1)}
+.card{transform:translateY(8px)}.card.in{transform:none}
+.card.take{opacity:0!important;filter:none!important;transform:translateX(var(--dx,0)) scale(.97)!important;transition:opacity .45s ease-in,transform .6s cubic-bezier(.4,0,.2,1),height .6s cubic-bezier(.4,0,.2,1),padding .6s cubic-bezier(.4,0,.2,1),margin .6s cubic-bezier(.4,0,.2,1)}
+.card .ct{display:grid}.card .ct>.gh,.card .ct>.ty{grid-area:1/1;display:block}.card .ct>.gh{visibility:hidden}
+.claude{overflow:hidden}
+
+/* 10/07: added-word highlight hugs the text (ascender to descender) instead of the whole line box; its hairline sits right under the descenders. Colors fade through registered properties. */
+@property --a{syntax:'<number>';inherits:false;initial-value:.5}
+@property --b{syntax:'<number>';inherits:false;initial-value:1}
+.para .n{background:linear-gradient(rgba(205,201,192,var(--a)),rgba(205,201,192,var(--a))) 0 .2em/100% .98em no-repeat,linear-gradient(rgba(160,156,146,var(--b)),rgba(160,156,146,var(--b))) 0 1.18em/100% 1px no-repeat;border-bottom:0;animation:settle2 3.2s ease 1.6s forwards}
+@keyframes settle2{to{--a:0;--b:0}}
+
+/* 10/07: edge print is whole words only. Tokens wrap onto a hidden second line instead of being cut through a letter at the strip's right edge. */
+.edge{display:flex;flex-wrap:wrap;column-gap:1.6em;white-space:nowrap;height:calc(var(--sh)*.04);line-height:1;overflow:hidden}
+.edge i{font-style:normal;flex:none}
+
+/* 10/07 sweep fixes: tablets (to 1100 wide) use the single-column layout; cards sliding out never create sideways scroll; reduced-motion view is not height-locked; two low-contrast greys darkened */
+@media(min-width:521px) and (max-width:1100px){.roll{--ch:250px}.strip h1{font-size:clamp(20px,3.4vw,30px)}}
+.stage{overflow-x:clip}.main{overflow-x:clip}
+.still .main{height:auto;min-height:100vh;overflow:visible}.still .stage{overflow:visible}.still .ctarow{margin-top:14px}
+.pgrow i b{color:#6b665f}
+.cl span{opacity:1;color:#6b665f}.claude .cl span{color:#bdb8b0}
+/* 10/07: narrow laptops (1101-1250 wide): slimmer photo column and side padding so the animation area fits without clipping */
+@media(min-width:1101px) and (max-width:1250px){.shell{grid-template-columns:24vw minmax(0,1fr)}.main{padding:14px 30px 10px 34px}.roll{margin-right:-30px;--ch:clamp(170px,24vh,250px);margin-top:12px}.strip h1{font-size:clamp(22px,min(2.7vw,3.9vh),34px)}.concept{font-size:clamp(14.5px,min(1.5vw,2.1vh),19px)}.stat{min-height:1.4em;font-size:clamp(15px,1.4vw,17px)}.para{font-size:clamp(17px,min(2.3vw,3vh),25px)}.body{grid-template-columns:minmax(0,1.4fr) minmax(220px,1fr);gap:22px}.photo figcaption{left:20px;right:20px}}
+/* 10/07: on shorter laptop screens the longest note plus the Claude working card needed ~15px more room; smaller note type and tighter card spacing */
+@media(max-height:940px) and (min-width:1101px){.note .ct,.chat .ct{font-size:clamp(14px,2vh,18px)}.note,.chat{padding:8px 14px}.claude,.both{padding:8px 14px}.stack{gap:8px}.steps{gap:2px}.bar{margin-top:7px}}
+@media(max-height:900px) and (min-width:1101px) and (max-width:1250px){.note .ct,.chat .ct{font-size:clamp(14px,1.9vh,17px)}}
+/* 10/07: smallest phones (320-360 wide): header row stays on one line */
+@media(max-width:360px){.wm{font-size:11.5px;letter-spacing:.1em;white-space:nowrap}.howlink{font-size:12.5px;white-space:nowrap}}
+
+/* 10/07: phone (to 1100 wide): the two buttons live in a bar fixed to the bottom of the screen, so they never move and never push the animation down. The author line moves to the end of the page. */
+.dl-short,.oneline-ph{display:none}
+@media(max-width:1100px){
+.main>.ctarow{position:fixed;left:0;right:0;bottom:0;order:0;margin:0;z-index:15;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(251,251,248,.985);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--rule)}
+.main>.ctarow .oneline{display:none}
+.main>.ctarow .cta{flex:1.5;width:auto;min-width:0;padding:6px 6px 6px 16px;gap:10px;box-shadow:none;justify-content:space-between}
+.main>.ctarow .cta small{display:none}.main>.ctarow .cta strong{font-size:15px}
+.main>.ctarow .cta .ar{width:34px;height:34px;flex:none}
+.main>.ctarow .dl{flex:1;width:auto;min-width:0;padding:8px 10px;font-size:14px;justify-content:center;text-align:center}
+.dl-long{display:none}.dl-short{display:inline}
+.oneline-ph{display:block;margin:18px 0 0;font-size:13px;line-height:1.4;color:var(--muted)}
+.main{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+}
+@media(max-width:1100px){.oneline-ph{order:3}.photo{height:250px}}
+/* 10/07: phone keeps the original order (sentence, then note and Claude below); engine8.js scrolls the page down by itself when a card appears. */
+@media(max-width:1100px){.note .ct,.chat .ct{font-size:17px}}
+@media(max-width:350px){.stat{min-height:4em}}
+
+/* 10/09 slow-connection fixes: the canister box has its final width before the image arrives (no shift), the image fades in once complete instead of painting line by line, and it is a 67 KB WebP (the PNG was 653 KB) */
+.can{width:calc(var(--ch)*.5656)}.can picture{display:contents}.can img{opacity:0;transition:opacity .5s ease}.can img.ok{opacity:1}
+
+/* 10/15: one quiet line under the buttons, linking to the record pages */
+.ctarow{flex-wrap:wrap;row-gap:0}
+.records{flex:0 0 100%;order:9;margin:6px 0 8px;font-size:13px;line-height:1.3;color:var(--muted)}
+.records a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.records a:hover,.records a:focus-visible{color:var(--ink)}
+@media(max-width:1100px){.main>.ctarow{flex-wrap:wrap;gap:0 10px}.main>.ctarow .records{margin:4px 0 2px;font-size:13px;text-align:center}.main{padding-bottom:calc(120px + env(safe-area-inset-bottom))}}
+</style></head><body>
 <div class="topbar"></div>
 <div class="shell">
 <figure class="photo"><img id="ph" src="photos/g-bettmann-camera.jpg" alt="George Eastman filming with a movie camera" style="object-position:50% 30%;filter:grayscale(1) contrast(1.03)"><figcaption><b>George Eastman</b>1854 to 1932. Founded Kodak.</figcaption></figure>
@@ -22,7 +247,7 @@
 <p class="oneline-ph">I’m the author. Claude is the writer. The ideas, the cuts and every decision are mine.</p>
 <div class="ctarow"><a class="cta" href="essay/index.html"><span><strong>Read the essay</strong><small>and see how every sentence was written</small></span><span class="ar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14110E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></svg></span></a>
 <a class="dl" href="forgetting-the-man-who-manufactured-memory.pdf" download><span class="dl-long">Download the essay (PDF)</span><span class="dl-short">Download PDF</span></a>
-<p class="oneline">I’m the author. Claude is the writer. The ideas, the cuts and every decision are mine.</p></div>
+<p class="oneline">I’m the author. Claude is the writer. The ideas, the cuts and every decision are mine.</p><p class="records">The record behind it: <a href="how/">how it was made</a>, <a href="sources/">the sources</a>, <a href="thesis/">the ten ideas</a>, <a href="cut/">the cuts</a>.</p></div>
 </div></div>
 <div id="ov" class="ov"><div class="sheet"><h2>How to read this</h2>
 <div class="lg"><div class="lr"><span class="sw sw-note"></span><div><b>My note.</b> What I typed to steer the draft, typos kept.</div></div>

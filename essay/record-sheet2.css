@@ -1,0 +1,37 @@
+/* Simplified phone record (?s=2). Builds on record-sheet.css. */
+@media (max-width:820px){
+  body.s2 #pv .board{height:auto;max-height:46vh;min-height:0;overflow:auto}
+  body.s2 #pv .board.big,body.s2 #pv .board.peek{height:auto;max-height:46vh}
+  body.s2 .sh-pub,body.s2 .sh-big,body.s2 .sh-x,body.s2 #pv .pvfoot,body.s2 #pv .board .legend{display:none!important}
+  body.s2 #pv{--rowh:30px!important;--sq:12px!important;--gap:3px!important}
+  body.s2 #pv .rowbtn{min-height:30px;height:30px}
+  body.s2 #pv .rows .s2hide{display:none}
+  body.s2 #pv .rows .s2dim{opacity:.5}
+  body.s2 #pv .rows .s2fold{display:flex;align-items:center;min-height:30px;padding:0 4px 0 4px;cursor:pointer;border-radius:6px}
+  body.s2 #pv .rows .s2fold.s2hide{display:none}
+  body.s2 #pv .rows .s2fold .s2fl{font:600 12px/1.2 var(--sans);color:var(--muted);padding-left:30px}
+  body.s2 #pv .rows .s2fold:active{background:var(--tintc)}
+  body.s2 #pv .board .s2q{display:block;margin:0 0 6px;padding:6px 0;border:0;background:none;font:600 12.5px var(--sans);color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:32px}
+  body.s2 #pv .board .s2leg{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 8px;padding:8px 10px;border:1px solid var(--rule);border-radius:10px;background:var(--ground);font:12.5px var(--sans);color:var(--ink)}
+  body.s2 #pv .board .s2leg[hidden]{display:none}
+  body.s2 .s2leg span{display:inline-flex;align-items:center;gap:6px}
+  body.s2 .s2leg .sw{display:inline-block;width:12px;height:12px}
+  body.s2 .s2leg .sw.g{background:var(--wg)}body.s2 .s2leg .sw.y{background:var(--wy);box-shadow:inset 0 0 0 2px var(--wyb)}body.s2 .s2leg .sw.x{background:var(--wx)}
+  body.s2 .s2leg .rd{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red)}
+  body.s2 #pv .gnote{margin-top:8px}
+  body.s2 #pv .gnote .card.s2hide{display:none}
+  body.s2 #pv .gnote .card .lostl{display:none}
+  body.s2 #pv .gnote .card .job,body.s2 #pv .gnote .card .at{display:inline}
+  body.s2 #pv .gnote .card .at{margin-left:6px}
+  body.s2 #pv .board .s2more{display:block;margin:6px 0 0;padding:6px 0;border:0;background:none;font:700 13px var(--sans);color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:36px}
+  /* reading bar: Evan's real quote, no mini grid, no "?" (R-1012-1051a) */
+  body.s2 #peek .pk-grid,body.s2 #peek .pk-q,body.s2 #peek .pk-go{display:none}
+  body.s2 #peek .pk-t .pk-quote{font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;color:var(--ink);opacity:.8}
+  body.s2 #peek .pk-main{gap:6px;padding:0 10px}
+}
+
+/* a long first note is capped, and "+N more" sits on the note's own header line (top right) so it is always on screen; "+N more" shows everything */
+body.s2 #pv .gnote{position:relative}
+body.s2 #pv .gnote.s2clamp .card:not(.s2hide){max-height:6.4em;overflow:hidden;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+body.s2 #pv .gnote.s2clamp .card:not(.s2hide) .job{padding-right:96px;min-height:46px;box-sizing:border-box}
+body.s2 #pv .gnote .s2more{position:absolute;top:0;right:0;z-index:2;margin:0;min-height:34px;padding:4px 10px;display:flex;align-items:center;background:var(--surface);border-radius:6px}

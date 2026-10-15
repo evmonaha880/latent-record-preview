@@ -1,0 +1,423 @@
+@font-face{font-family:"Schola";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/schola-regular.woff2) format("woff2")}
+@font-face{font-family:"Schola";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/schola-italic.woff2) format("woff2")}
+@font-face{font-family:"Schola";font-weight:700;font-style:normal;font-display:swap;src:url(fonts/schola-bold.woff2) format("woff2")}
+@font-face{font-family:"Schola";font-weight:700;font-style:italic;font-display:swap;src:url(fonts/schola-bolditalic.woff2) format("woff2")}
+@font-face{font-family:"Charter Adjusted";font-weight:400;font-style:normal;font-display:swap;size-adjust:96.9%;src:url(fonts/charter-roman.woff2) format("woff2")}
+@font-face{font-family:"Charter Adjusted";font-weight:400;font-style:italic;font-display:swap;size-adjust:95.9%;src:url(fonts/charter-italic.woff2) format("woff2")}
+@font-face{font-family:"Charter Adjusted";font-weight:700;font-style:normal;font-display:swap;size-adjust:95.7%;src:url(fonts/charter-bold.woff2) format("woff2")}
+@font-face{font-family:"Franklin";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/franklin-400.woff2) format("woff2")}
+@font-face{font-family:"Franklin";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/franklin-500.woff2) format("woff2")}
+@font-face{font-family:"Franklin";font-weight:600;font-style:normal;font-display:swap;src:url(fonts/franklin-600.woff2) format("woff2")}
+
+:root{--ground:#FBFBF8;--ink:#1A1918;--muted:#5F5B57;--graphite:var(--muted);--surface:#EFEBE3;--head:var(--surface);
+  --new:#F2E3B3;--shade:var(--new);--red:#A12A22;--yellow:#FFB300;--accent:var(--yellow);--rule:#D9D6D0;
+  --serif:Schola,"Charter Adjusted",Charter,Georgia,serif;--sans:Franklin,"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --text:660px;--wide:1000px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#14110E;--ink:#EDE8DE;--muted:#A8A39C;--surface:#231E18;--new:#3E3319;--red:#D2655B;--yellow:#D9A21F;--rule:#3A352E}}
+:root[data-theme="dark"]{--ground:#14110E;--ink:#EDE8DE;--muted:#A8A39C;--surface:#231E18;--new:#3E3319;--red:#D2655B;--yellow:#D9A21F;--rule:#3A352E}
+html{background:var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+b,strong{font-weight:700}
+
+/* ---- type roles */
+.fr,.meta{font-family:var(--sans);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.meta{font-size:13px;line-height:1.4;color:var(--muted)}
+.lab{font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.3}
+.sc{font-variant-caps:normal;letter-spacing:0}
+.pn{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--muted);margin-right:6px;font-variant-numeric:tabular-nums;letter-spacing:0}
+
+/* ---- the one link, the one toggle, the one button */
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--muted);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-color:var(--ink)}
+summary{cursor:pointer;list-style:none;font-family:var(--sans);font-size:13px;line-height:1.4;color:var(--ink);text-transform:none;letter-spacing:0}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'▸';display:inline-block;width:1em;color:var(--muted);transition:transform .15s ease}
+details[open]>summary::before{transform:rotate(90deg)}
+.btn,.bar .sw button,.bar .sw a,.back,.para .num,.before .edsw button,.slider .play{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--ink);background:none;color:var(--ink);min-height:36px;padding:0 12px;box-sizing:border-box;display:inline-flex;align-items:center;gap:6px;cursor:pointer;text-decoration:none;border-radius:0}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* ---- the one card: .e (margin) · .si (phone strip) · every boxed item on the pages */
+.card,.margin .e,.notestrip .si,.secnotes .e,.lede .four,.turn.author,blockquote,.doccard,.xch .card,main.page .doc blockquote,main.page .turn blockquote,main.page blockquote.thesis{
+  background:var(--surface);border-left:2px solid var(--ink);padding:12px 14px;margin:0 0 12px;box-sizing:border-box}
+.margin .e.here,.notestrip .si.here{border-left-color:var(--red)}
+.margin .e.quiet,.notestrip .si.quiet,.turn.claude,ul.cutlist li,main.page .candgrid .cand,.margin .e.wording{background:none;border-left:2px solid var(--rule)}
+.margin .e.wording.cur{background:var(--surface);border-left-color:var(--ink)}
+.margin .l,.notestrip b,.secnotes .e .l{display:block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);line-height:1.3;margin:0}
+.margin .l span,.secnotes .e .l span{display:block;margin-top:2px;font-weight:400;font-size:13px;letter-spacing:0;text-transform:none;color:var(--muted)}
+.margin .t,.notestrip .si .t{font-size:15px;line-height:1.45;margin-top:6px;white-space:pre-line}
+.margin .b,.notestrip .si .b{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:6px}
+.margin details,.notestrip details{margin-top:8px}
+.margin details .b{margin-top:4px}
+.margin .jump,.notestrip .jump{margin-top:8px;font-family:var(--sans);font-size:13px}
+.took{margin-top:8px;font-family:var(--sans);font-size:13px;color:var(--ink)}
+.chk{width:14px;height:14px;vertical-align:-2px;margin-right:4px}
+.chk path{stroke:var(--ink)}
+.ans{font-family:var(--sans);font-size:13px;color:var(--ink);letter-spacing:0;text-transform:none;font-weight:400}
+
+/* ---- the slim bar and the one yellow rule */
+.bar{position:sticky;top:0;z-index:5;background:var(--ground);display:flex;align-items:center;gap:16px;height:48px;padding:0 20px;border-bottom:1px solid var(--ink)}
+.bar .wm{font-weight:700;font-size:17px;margin-right:auto;white-space:nowrap;text-decoration:none}
+.bar .wip{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-left:12px;white-space:nowrap}
+.bar .menu .w-m{display:none}
+.bar .pages{display:flex;gap:18px;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.bar .pages a{text-decoration:none;border-bottom:1px solid transparent;padding:4px 0}
+.bar .pages a:hover,.bar .pages a[aria-current]{border-bottom-color:var(--ink)}
+.bar .menu{position:relative}
+.bar .menu summary{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);min-height:36px;padding:0 12px;display:inline-flex;align-items:center;gap:6px}
+.bar .menu summary::before{content:none}
+.bar .menu summary::after{content:'▾'}
+.bar .menu:not([open]) .dd{display:none}
+.bar .menu .dd{position:absolute;top:44px;right:0;min-width:260px;max-width:calc(100vw - 28px);max-height:calc(100vh - 80px);overflow:auto;background:var(--ground);border:1px solid var(--ink);padding:8px 0;z-index:6}
+.bar .menu .dd a{display:block;padding:8px 16px;text-decoration:none;font-size:15px}
+.bar .menu .dd a:hover{background:var(--surface)}
+.bar .menu .dd .lab{display:block;padding:12px 16px 4px}
+.bar .menu .dd .pgs{display:none}
+.bar .pdf{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+.yb{position:sticky;top:48px;z-index:5;height:4px;background:var(--yellow);border-bottom:1px solid var(--ink)}
+
+main{padding:0 20px 64px;max-width:1040px;margin:0 auto}  /* no overflow rule anywhere: it breaks position:sticky; the checks assert scrollWidth == viewport */
+
+/* ---- the essay page: title first */
+.masthead{margin:32px 0 16px;max-width:var(--text)}
+h1.title{font-weight:700;font-size:44px;line-height:1.08;margin:0 0 12px;max-width:18ch;letter-spacing:-.005em}
+.byline{font-size:16px;margin:0}
+.masthead .disclosure{font-family:var(--sans);font-size:13px;color:var(--muted);margin:4px 0 0}
+.lede{font-size:16px;line-height:1.45;max-width:var(--text);margin:0 0 32px}
+.lede details{margin-top:8px}
+.lede .four{font-size:15px;margin:8px 0 0}
+h2.sec{font-weight:700;font-size:22px;line-height:1.25;margin:48px 0 16px;padding-top:12px;border-top:1px solid var(--ink);max-width:var(--text);scroll-margin-top:64px}
+h2.sec a{text-decoration:none}
+h2.sec .n{display:none}
+.secnotes{max-width:var(--text);margin:-8px 0 16px}
+.secnotes .e{margin:8px 0;font-size:15px}
+
+/* paragraphs: text column + the one button that opens its drafts */
+.para{display:grid;grid-template-columns:minmax(0,var(--text)) 300px;gap:40px;margin:0 0 24px;align-items:start;scroll-margin-top:64px}
+.para .pub p{margin:0;hyphens:auto;text-wrap:pretty}
+.para .mark{display:flex;align-items:center;gap:8px;padding-top:2px}
+.para .num{color:var(--ink);border-color:var(--muted);font-weight:600;white-space:nowrap}
+.para .num:hover{border-color:var(--ink);color:var(--ink)}
+.para .num[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);color:var(--ground)}
+.para .untr{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.para.open-here .pub,.para.open-here .mark{display:none}
+.stone{display:block;margin:8px 0 8px 16px;font-family:var(--sans);font-size:13px;letter-spacing:.1em;text-transform:uppercase;line-height:1.7;overflow-wrap:anywhere;color:var(--ink)}
+.stone .line{display:block}
+.pub .quote{display:block;margin:8px 0 8px 16px;padding-left:14px;border-left:2px solid var(--ink);font-style:italic}
+.kh,.km{text-decoration:none}
+
+/* photographs at their print positions */
+figure.photo{margin:8px 0 24px;max-width:var(--text)}
+figure.photo img{display:block;width:100%;height:auto;background:var(--surface)}
+figure.photo figcaption{margin-top:8px;font-family:var(--sans);font-size:13px;line-height:1.4;color:var(--muted)}
+figure.photo .rec{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) figure.photo img{filter:brightness(.88)}}
+:root[data-theme="dark"] figure.photo img{filter:brightness(.88)}
+
+/* ---- the opened paragraph */
+.open{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 0 24px;margin:0 0 24px;grid-column:1 / -1}
+.open[hidden]{display:none}
+.open .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;position:sticky;top:53px;background:var(--ground);z-index:2;padding:8px 0}
+.open .head .pn{font-size:13px;color:var(--ink)}
+.open .head .hcount{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:400}
+.back{margin-left:auto}
+.open .plede{font-size:16px;max-width:var(--text);margin:0 0 12px}
+.open .plede.brief{font-size:13.5px;color:var(--muted);margin:0 0 8px}
+.state{font-size:16px;margin:0 0 12px;scroll-margin-top:120px}
+.state .tally{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.state .rw{font-weight:700;color:var(--ink)}
+.state a.leave{font-family:var(--sans);font-size:13px;margin-left:12px}
+
+/* the slider: play, then the track; a "before this paragraph" zone; dots 12 / 16 / 18 */
+.slider{display:flex;align-items:stretch;gap:0;margin:0 0 8px}
+.slider .play{width:44px;min-height:44px;height:44px;flex:0 0 44px;justify-content:center;padding:0;border-right:0;align-self:center}
+.slider .play svg{width:12px;height:12px}
+.slider .play svg *{fill:currentColor}
+.slider .play.on{background:var(--ink);color:var(--ground)}
+.track{position:relative;flex:1;height:68px;border-left:1px solid var(--ink);margin-right:10px}
+.track input{position:absolute;inset:0;width:100%;margin:0;opacity:0;cursor:pointer;height:68px}
+.track .line{position:absolute;left:14px;right:0;top:36px;height:1px;background:var(--ink)}
+.track .zone{position:absolute;top:28px;height:16px;background:var(--surface);border-radius:8px;pointer-events:none}
+.track .zlab{position:absolute;top:-2px;font-family:var(--sans);font-size:11px;color:var(--muted);white-space:nowrap;pointer-events:none}
+.track .stop{position:absolute;border:1px solid var(--ink);border-radius:50%;background:var(--ground);pointer-events:none;box-sizing:border-box}
+.track .stop.m{background:var(--muted);border-color:var(--muted)}
+.track .stop.cur{box-shadow:0 0 0 2px var(--ground),0 0 0 3.5px var(--ink)}
+/* 09/25 22:40 play progress: the line to the current stop is heavy; the current stop is solid */
+.track .fill{position:absolute;top:35px;height:3px;background:var(--ink);border-radius:2px;pointer-events:none}
+.track .stop.cur:not(.fin){background:var(--ink);border-color:var(--ink);border-style:solid}
+.track .stop.sq.cur{background:var(--chat);border-color:var(--chat)}
+.track:focus-within .stop.cur{box-shadow:0 0 0 2px var(--ground),0 0 0 3.5px var(--ink),0 0 0 6px var(--new)}
+.track .stop.fin{background:var(--yellow);border-color:var(--ink)}
+.track .stop.ed,.track .stop.x{border-style:dashed;background:var(--ground)}
+.track .tick{position:absolute;top:50px;font-family:var(--sans);font-size:13px;color:var(--muted);white-space:nowrap;pointer-events:none;font-variant-numeric:tabular-nums}
+.track .tick.cur{color:var(--ink);font-weight:600}
+.track .tick.merge{display:none}
+.track .day{position:absolute;top:10px;white-space:nowrap;font-family:var(--sans);font-size:11px;color:var(--muted);pointer-events:none}
+.drafts{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 16px;max-width:var(--text)}
+.drafts[hidden]{display:none}
+
+/* the text and its marks: new words tinted as runs, cut words struck in red */
+.rbody{display:grid;grid-template-columns:minmax(0,var(--text)) 300px;gap:40px;align-items:start}
+.text p{margin:0;hyphens:auto;text-wrap:pretty}
+.text.clean .ins{background:none}.text.clean .del{display:none}
+.ins{background:var(--new);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:color .45s ease,background .45s ease,filter .45s ease}
+.ins.dev{color:transparent;background:transparent;filter:blur(3px)}
+.del,.hs{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:1.5px}
+.ptext .shared{background:var(--new);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.ptext [data-si]{cursor:pointer}
+.ptext [data-si]:hover{text-decoration:underline;text-decoration-color:var(--muted);text-underline-offset:4px;text-decoration-thickness:1px}
+.ptext .hov{background:var(--surface);box-shadow:0 0 0 2px var(--surface)}
+.ptext .inote{font-family:var(--sans);font-size:.72em;line-height:1.2;color:var(--ink);background:var(--ground);border:1px solid var(--ink);padding:1px 5px;margin:0 2px;vertical-align:.12em;white-space:normal}
+.ptext .inote::before{content:'note · ';color:var(--muted)}
+.ptext .inote .pn{margin-right:3px}
+.ptext .inote[data-pair]{cursor:pointer}
+.ptext .inote.pair-hot{outline:2px solid var(--yellow);outline-offset:1px}
+.margin .e.pair-hot,.notestrip .si.pair-hot{box-shadow:inset 3px 0 0 var(--yellow)}
+.ptext .anc{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:3px;cursor:pointer}
+.ptext .anc.pair-hot{background:color-mix(in srgb,var(--yellow) 35%,transparent)}
+.ptext .ancn{font-family:var(--sans);font-size:.7em;font-weight:600;color:var(--ink);vertical-align:.35em;margin-left:1px;cursor:pointer}
+.ptext .ancn.pair-hot{background:var(--yellow)}
+.ptext .del.anc{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:1.5px;box-shadow:inset 0 -2px 0 var(--yellow)}   /* 09/25: a cut sentence a note points at stays struck (the pointer must never make cut text read as live) */
+.open.sent .ptext{font-size:1.06em;cursor:pointer}
+.open.sent .head{border-bottom:2px solid var(--ink);padding-bottom:8px}
+.diffnote{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:12px;max-width:var(--text)}
+.diffnote .ins,.diffnote .shared{color:var(--ink);padding:0 2px}
+.diffnote .origin,.diffnote .move{display:block;margin-top:8px;color:var(--ink)}
+.diffnote a.showlast{font-family:var(--sans);font-size:13px;margin-right:8px}
+.diffnote details.chg{margin-top:8px}
+.diffnote .chgrow{margin:8px 0 0;font-size:13.5px;line-height:1.45}
+.diffnote .chgrow b{display:block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.diffnote .chgrow .chgt{margin-top:2px;color:var(--ink)}
+.open.nohand .hw{text-decoration:none}
+
+/* the margin (desktop) and the strip (phone) */
+.notestrip{display:none}
+.notestrip .si{display:block;cursor:pointer;position:relative;padding-right:32px}
+.notestrip .si::after{content:'▾';position:absolute;right:12px;top:12px;color:var(--muted);font-family:var(--sans);font-size:13px}
+.notestrip .si.is-expanded::after{content:'▴'}
+.notestrip .si .short{display:block;margin-top:6px;font-size:15px;line-height:1.45}
+.notestrip .si .more .t{max-height:40vh;overflow:auto}
+.margin .e.arrive,.notestrip .si.arrive{opacity:0;transform:translateY(6px)}
+.margin .e,.notestrip .si{transition:opacity .35s ease,transform .35s ease}
+.margin .e.birth .stood,.notestrip .si.birth .stood{font-size:13.5px;line-height:1.45;color:var(--muted);margin-top:6px}
+.margin .e.birth .ansline,.notestrip .si.birth .ansline{margin-top:8px;font-size:13.5px;line-height:1.45}
+.margin .e.birth .became,.notestrip .si.birth .became{font-family:var(--sans);font-size:13px;margin-top:6px}
+.margin details.morecards>summary{margin:8px 0}
+.e.xcard .xlink,.si.xcard .xlink{margin-top:8px}
+a.xfull{font-family:var(--sans);font-size:13px;font-weight:600}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* how to read it: said once per page, under the first opened paragraph */
+.disc{margin-top:24px;border-top:1px solid var(--rule);padding-top:8px;font-size:13.5px;line-height:1.5;max-width:var(--text)}
+.disc details{margin:8px 0}
+.disc details p{margin:8px 0 0}
+.disc .full{font-size:13.5px;color:var(--muted);margin-top:8px}
+.vleg{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;font-size:15px;margin-top:8px}
+.vleg .k{display:inline-flex;align-items:center;gap:8px}
+.vleg .k small{font-family:var(--sans);font-size:13px;color:var(--muted)}
+.vleg .dot{display:inline-block;width:10px;height:10px;border:1px solid var(--ink);border-radius:50%;background:var(--ground)}
+.vleg .dot.m{background:var(--muted);border-color:var(--muted)}
+.vleg .dot.fin{background:var(--yellow)}
+
+/* before the essay / cut material inside the essay page (opened from a link) */
+.before{display:none;margin-top:48px;border-top:1px solid var(--ink);padding-top:8px}
+body.record .before{display:block}
+.before .lede{margin:8px 0 16px}
+.before .edsw{display:inline-flex;margin:12px 0 8px}
+.before .edsw button+button{border-left:0}
+.before .edsw button.on{background:var(--ink);color:var(--ground)}
+.before .edhead{font-size:15px;color:var(--muted);margin:0 0 16px;max-width:var(--text)}
+.before .edframe{font-size:15px;color:var(--ink);margin:0 0 16px;max-width:var(--text);border-left:2px solid var(--rule);padding-left:12px}
+.before .edpara{display:grid;grid-template-columns:minmax(0,var(--text)) 300px;gap:40px;margin:0 0 24px;align-items:start}
+.before .edpara .pub p{margin:0;hyphens:auto;text-wrap:pretty}
+.before .edpara.h .pub p{font-weight:700}
+.before .edpara.q .pub p{color:var(--muted);font-size:15px}
+.before .edpara.q .pub .lab{display:block;margin-bottom:4px}
+.before details.edhdr{margin:0 0 24px;max-width:var(--text)}
+.before details.edhdr .edpara{margin-top:12px}
+.before .edtail{font-size:13.5px;color:var(--muted);max-width:var(--text)}
+.cut{display:none;margin-top:48px;border-top:1px solid var(--ink);padding-top:8px}
+body.record .cut{display:block}
+.cut .cutchunk,main.page .cutchunk{display:grid;grid-template-columns:minmax(0,var(--text)) 300px;gap:40px;margin:0 0 24px;align-items:start}
+.cut .cutchunk .pub p,main.page .cutchunk .pub p{margin:0;color:var(--muted);hyphens:auto}
+
+.method{margin-top:48px;border-top:1px solid var(--rule);padding-top:12px;font-size:13.5px;color:var(--muted);line-height:1.5;max-width:var(--text)}
+footer.site{margin:64px 0 0;border-top:1px solid var(--ink);padding-top:12px;font-family:var(--sans);font-size:13px;color:var(--muted);max-width:var(--text)}
+footer.site a{color:var(--muted)}
+nav.around{margin-top:48px;max-width:var(--text)}
+nav.around ul{list-style:none;padding:0;margin:0}
+nav.around li{margin:0 0 12px;font-size:16px;line-height:1.45}
+nav.around li a{font-weight:700}
+
+/* ---- the pages around the essay */
+main.page{max-width:1040px}
+main.page h1{font-weight:700;font-size:32px;line-height:1.15;margin:32px 0 12px;max-width:var(--text)}
+main.page h2{font-weight:700;font-size:22px;line-height:1.25;margin:48px 0 12px;padding-top:12px;border-top:1px solid var(--ink);max-width:var(--wide)}
+@media (min-width:761px){h2#weeks+ol.evening{grid-template-columns:1fr 1fr 2.4fr 1fr 1fr 1fr 1fr}}
+main.page h3{font-family:var(--serif);font-weight:700;font-size:18px;line-height:1.3;letter-spacing:0;text-transform:none;color:var(--ink);margin:24px 0 8px}
+main.page h3.secname{margin-top:32px;padding-top:12px;border-top:1px solid var(--rule);max-width:var(--wide)}
+main.page h4{font-size:16px;margin:16px 0 4px}
+main.page p,main.page ul,main.page ol:not(.evening),main.page dl{max-width:var(--text)}
+main.page .lede{font-size:18px}
+main.page .b{font-family:var(--sans);font-size:13px;line-height:1.4;color:var(--muted)}
+main.page p.boundary{font-size:15px;color:var(--muted)}
+main.page .doc p{margin:0 0 1em}
+main.page .doc h4{font-weight:700}
+main.page .doc ul,main.page .turn ul{padding-left:20px}
+main.page blockquote.thesis p{margin:0;font-size:18px}
+main.page code{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:var(--surface);padding:0 3px;overflow-wrap:anywhere}
+main.page code.wrap{word-break:break-all;white-space:normal}
+main.page ul{overflow-wrap:anywhere}
+main.page details>summary{margin:8px 0}
+details.docfull{margin:8px 0;max-width:var(--text)}
+details.docfull .doc{margin-top:12px}
+details.thread{margin:8px 0 0}
+main.page p.plainp{font-size:18px;line-height:1.5}
+main.page ul.plain{list-style:none;padding:0;margin:8px 0}
+main.page ul.plain li{margin:0 0 4px;font-size:16px}
+main.page .identity{font-family:var(--sans);font-variant-numeric:tabular-nums}
+
+/* cut sentences */
+ul.cutlist{list-style:none;padding:0;margin:0 0 8px;max-width:var(--text)}
+ul.cutlist li{padding:8px 14px;margin:0 0 12px}
+ul.cutlist .t{display:block}
+ul.cutlist .b{display:block;margin-top:4px}
+ul.cutlist .b.evan{color:var(--ink);font-family:var(--serif);font-size:15px}
+article.passage{max-width:var(--text);margin:0 0 16px}
+article.passage p{margin:0}
+article.passage .margin .e{background:var(--ground)}
+main.page .cutpara{margin:0 0 8px;max-width:var(--text)}
+main.page .cutpara h4{font-size:16px;margin:16px 0 4px}
+main.page .cutpara h4 a{font-family:var(--sans);font-size:13px;font-weight:400;margin-left:8px}
+main.page .cutpara .summ{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 8px}
+main.page .cutpara details>summary{margin:4px 0}
+.fates{max-width:var(--text);margin:16px 0 8px}
+.fates .barx{display:flex;height:20px;border:1px solid var(--ink)}
+.fates .barx span{display:block;height:100%}
+.fates .barx .f-cut{background:var(--ink)}
+.fates .barx .f-fold{background:var(--muted)}
+.fates .barx .f-kept{background:var(--surface)}
+.fates .key{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:8px;font-family:var(--sans);font-size:13px;color:var(--ink)}
+.fates .key i{display:inline-block;width:10px;height:10px;border:1px solid var(--ink);margin-right:6px;vertical-align:-1px}
+.fates .key .f-cut{background:var(--ink)}.fates .key .f-fold{background:var(--muted)}.fates .key .f-kept{background:var(--surface)}
+.heat{display:grid;grid-template-columns:repeat(22,minmax(0,1fr));gap:2px;max-width:var(--text);margin:16px 0 4px}
+.heat a{display:flex;align-items:center;justify-content:center;aspect-ratio:1;border:1px solid var(--rule);text-decoration:none;font-family:var(--sans);font-size:10px;line-height:1;color:var(--muted);overflow:hidden}
+.heat a.h3,.heat a.h4{color:var(--ground)}
+main.page .cutpara{scroll-margin-top:72px}
+.heat a.h0{background:var(--ground)}.heat a.h1{background:var(--surface)}.heat a.h2{background:var(--rule)}.heat a.h3{background:var(--muted)}.heat a.h4{background:var(--ink)}
+.heat a:hover,.heat a:focus{outline:2px solid var(--yellow);outline-offset:0}
+.heatcap{font-family:var(--sans);font-size:13px;color:var(--muted);max-width:var(--text);margin:0 0 24px}
+
+/* exchanges */
+.xch{margin:32px 0 48px}
+.xch h2{margin-top:0}
+.xch .anchor{display:block;position:relative;top:-72px;visibility:hidden}
+dl.sum{margin:8px 0;display:grid;grid-template-columns:max-content 1fr;gap:8px 16px}
+dl.sum dt{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+dl.sum dd{margin:0}
+.turn{margin:12px 0;max-width:var(--text)}
+.turn .l{font-family:var(--sans);font-size:13px;color:var(--muted);margin-bottom:4px}
+.turn .t p{margin:0 0 .7em}
+.turn table{border-collapse:collapse;font-size:13.5px;margin:8px 0;display:block;overflow-x:auto;max-width:100%}
+.turn td,.turn th{border-bottom:1px solid var(--rule);padding:4px 8px;text-align:left;vertical-align:top}
+ul.instr{padding-left:18px}
+ul.instr li{margin:0 0 8px}
+pre.instr{white-space:pre-wrap;word-break:break-word;font-family:var(--sans);font-size:13px;line-height:1.5;max-width:var(--text);background:var(--surface);padding:12px 16px;overflow-x:auto}
+
+/* before the essay: the evening, the two documents, the candidates */
+ol.evening{list-style:none;padding:0;margin:12px 0 8px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0;border-top:2px solid var(--ink);max-width:var(--wide)}
+ol.evening li{padding:12px 12px 0 0;position:relative;font-size:13.5px;line-height:1.4}
+ol.evening li::before{content:'';position:absolute;top:-7px;left:0;width:10px;height:10px;border-radius:50%;background:var(--ground);border:2px solid var(--ink)}
+ol.evening li.doc::before{background:var(--ink)}
+ol.evening li.key::before{background:var(--yellow)}
+ol.evening .tm{display:block;font-family:var(--sans);font-variant-numeric:tabular-nums;font-size:13px;font-weight:600;margin:4px 0 2px}
+ol.evening .lab{display:block;margin:0 0 4px}
+.docpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:var(--wide)}
+.doccard{margin:0}
+.doccard h3{font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink);margin:0 0 4px}
+main.page .doccard h3{margin:0 0 4px}
+.doccard .when{font-family:var(--sans);font-size:13px;color:var(--muted);margin:0 0 8px}
+.doccard p{margin:0 0 8px}
+.doccard .go a{font-family:var(--sans);font-size:13px;margin-right:16px}
+.candgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:var(--wide)}
+main.page .candgrid .cand{margin:0;padding:12px 14px}
+main.page .candgrid .cand h3{display:flex;gap:8px;align-items:baseline;margin:0 0 8px}
+main.page .candgrid .cand .no{font-family:var(--sans);font-size:13px;color:var(--muted);min-width:1.4em}
+main.page .candgrid .cand p{margin:0 0 8px;font-size:15px;line-height:1.45}
+main.page .candgrid .cand .idea{font-size:16px;font-style:italic}
+main.page .candgrid .cand dl{margin:0;display:block}
+main.page .candgrid .cand dt{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+main.page .candgrid .cand dd{margin:2px 0 0;font-size:15px;line-height:1.45}
+main.page .candgrid .cand .lab{display:block;margin:8px 0 2px}
+main.page .candgrid .cand .carried{border-top:1px solid var(--rule);padding-top:8px;margin-bottom:0}
+
+/* ---- phones */
+@media (max-width:900px){.bar .pages{display:none}.bar .menu .dd .pgs{display:block}.bar .menu .w-d{display:none}.bar .menu .w-m{display:inline}}
+@media (max-width:760px){
+  body{font-size:17px}
+  main{padding:0 16px 48px}
+  .bar{padding:0 16px;gap:8px}
+  .bar .wm{font-size:15px}
+  .bar .wip{display:none}
+  .bar .menu summary{min-height:44px}
+  h1.title{font-size:34px}
+  .masthead{margin-top:24px}
+  h2.sec,main.page h2{font-size:20px}
+  main.page h1{font-size:26px}
+  main.page h3{font-size:17px}
+  .para,.rbody,.before .edpara,.cut .cutchunk,main.page .cutchunk{grid-template-columns:minmax(0,1fr);gap:12px}
+  .para .num{border:0;padding:12px 0;min-height:44px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--muted);text-underline-offset:4px}
+  .para .num[aria-expanded="true"]{background:none;color:var(--ink)}
+  summary{min-height:44px;display:flex;align-items:center}
+  .bar .menu summary{display:inline-flex}
+  .notestrip{display:block}#margin,.margin{display:none}
+  .before .edpara .margin{display:block}
+  .open .head{flex-wrap:nowrap}
+  .back{min-height:44px;padding:0 10px}
+  .track .tick.mid{display:none}
+  .track .day{display:none}
+  .docpair,.candgrid{grid-template-columns:1fr}
+  ol.evening{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--ink);margin-left:6px}
+  ol.evening li{padding:0 0 12px 16px}
+  ol.evening li::before{top:3px;left:-7px}
+  ol.evening .tm{margin-top:0}
+  .heat{grid-template-columns:repeat(11,minmax(0,1fr))}
+  dl.sum{grid-template-columns:1fr;gap:2px 0}
+  dl.sum dt{margin-top:8px}
+}
+:root{--chat:#6F7F8C;--chatsoft:#E4E9ED}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--chat:#8C9BA7;--chatsoft:#1F262C}}
+:root[data-theme="dark"]{--chat:#8C9BA7;--chatsoft:#1F262C}
+/* 2026-09-25 chat stops (the ¶33 prototype Evan approved 16:52): square stops in their own band, the text framed while it lives in the chat */
+.track .zone.chatz{background:var(--chatsoft);border-radius:3px;border:1px dashed var(--chat)}
+.track .zlab.chatl{color:var(--chat);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px}
+.track .stop.sq{border-radius:2px;background:var(--chatsoft);border-color:var(--chat)}
+.track .stop.sq.cur{box-shadow:0 0 0 2px var(--ground),0 0 0 3.5px var(--chat)}
+.track .tick.chatt,.track .tick.chatt.cur{color:var(--chat)}
+.drafts .chatleg[hidden]{display:none}
+.state .chatst{color:var(--chat);font-weight:600}
+.text.chatframe{border-left:2px dashed var(--chat);padding:2px 0 2px 14px;margin-left:-16px}
+.chatlab{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--chat);margin:0 0 6px}
+.chatlab[hidden]{display:none}
+.chatextra details{margin-top:10px}
+.chatextra details summary{color:var(--muted)}
+.chatextra .tailtext{font-size:15px;line-height:1.45;color:var(--muted);margin:6px 0 0}
+.chatextra .others ul{list-style:none;padding:0;margin:8px 0 0}
+.chatextra .others li{font-size:15px;line-height:1.45;margin:0 0 10px;padding-left:10px;border-left:2px solid var(--rule)}
+.chatextra .others li b{font-family:var(--sans);font-size:13px;font-weight:600}
+.chatextra .others li .g{display:block;font-family:var(--sans);font-size:13px;color:var(--muted)}
+.margin .e.claude,.notestrip .si.claude{background:none;border-left:2px solid var(--chat)}
+.margin details .full{font-size:14px;line-height:1.5;margin-top:6px;max-height:50vh;overflow:auto;padding-right:4px;overflow-wrap:anywhere}
+.margin details .full p{margin:0 0 .7em}
+.margin details .full hr{border:0;border-top:1px solid var(--rule);margin:10px 0}
+.margin .bubble{position:relative;background:var(--chatsoft);border:1px solid var(--chat);border-radius:14px 14px 3px 14px;padding:10px 14px 12px;margin:0 0 16px 18px}
+.margin .bubble::after{content:'';position:absolute;right:-1px;bottom:-9px;width:12px;height:9px;background:var(--chatsoft);border-right:1px solid var(--chat);border-bottom:1px solid var(--chat);border-bottom-right-radius:12px 9px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.margin .bubble .l{color:var(--chat)}
+.margin .bubble .t{font-style:italic;font-size:15px;line-height:1.45;margin-top:6px}
+.notestrip .si.bubble-si{background:var(--chatsoft);border-left-color:var(--chat)}
+.dropchip{position:fixed;z-index:20;pointer-events:none;font-family:var(--sans);font-size:12px;line-height:1.3;color:var(--ink);background:var(--chatsoft);border:1px solid var(--chat);border-radius:3px;padding:3px 7px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;transform-origin:0 0}
+@media (max-width:760px){.text.chatframe{margin-left:0;padding-left:12px}}
+@media (prefers-reduced-motion: reduce){.ins,.del{transition:none}.e.here .chk,.si.here .chk,.chk{animation:none;stroke-dashoffset:0}.margin .e,.notestrip .si{transition:none}summary::before{transition:none}}
+html[data-motion="reduce"] .ins,html[data-motion="reduce"] .del{transition:none}
+html[data-motion="reduce"] .chk{animation:none;stroke-dashoffset:0}

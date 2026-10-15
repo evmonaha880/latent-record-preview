@@ -1,0 +1,15 @@
+@font-face{font-family:Schola;src:url(fonts/schola-regular.woff2);font-weight:400}
+@font-face{font-family:Schola;src:url(fonts/schola-italic.woff2);font-weight:400;font-style:italic}
+@font-face{font-family:Schola;src:url(fonts/schola-bold.woff2);font-weight:700}
+@font-face{font-family:Franklin;src:url(fonts/franklin-400.woff2);font-weight:400}
+@font-face{font-family:Franklin;src:url(fonts/franklin-500.woff2);font-weight:500}
+@font-face{font-family:Franklin;src:url(fonts/franklin-600.woff2);font-weight:600}
+@font-face{font-family:Charter;src:url(fonts/charter-roman.woff2);font-weight:400}
+@font-face{font-family:Charter;src:url(fonts/charter-italic.woff2);font-weight:400;font-style:italic}
+@font-face{font-family:Charter;src:url(fonts/charter-bold.woff2);font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ground:#FBFBF8;--ink:#1A1918;--muted:#5F5B57;--surface:#EFEBE3;--red:#A12A22;--yellow:#FFB300;--rule:#D9D6D0;--lilac:#DDD0EE;--lilac2:#8E78B0;--chat:#6F7F8C;--chatsoft:#E4E9ED;--serif:Schola,Charter,Georgia,serif;--sans:Franklin,"Helvetica Neue",Arial,sans-serif}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+@font-face{font-family:Jost;src:url(fonts/jost-latin.woff2) format('woff2');font-weight:500 700;font-style:normal;font-display:swap}

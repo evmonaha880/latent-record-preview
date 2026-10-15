@@ -113,6 +113,26 @@
 .pages a[aria-current]{border-bottom:2px solid var(--ink);font-weight:800}
 .pages .soon{color:var(--muted);padding:6px 0;cursor:default}.pages .soon::after{content:" · soon";font-weight:400}
 
+/* 10/15: the Wordle guide in dark mode (and the demo box never wider than the sheet) */
+.gdemo{width:auto;max-width:100%;box-sizing:border-box}.gcap{max-width:38ch}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .guide{background:#2C261F;border-color:#52493F}
+  :root:not([data-theme="light"]) #guideSheet{background:#2C261F;border:1px solid #52493F;border-bottom:0;box-shadow:0 -12px 50px rgba(0,0,0,.7)}
+  :root:not([data-theme="light"]) #guideSheet::backdrop{background:rgba(0,0,0,.72)}
+  :root:not([data-theme="light"]) .gdemo{background:#1D1913;border-color:#52493F}
+  :root:not([data-theme="light"]) .gbody .tile.E,:root:not([data-theme="light"]) .gdemo .tile.E{background:transparent;box-shadow:inset 0 0 0 2px #6A6055}
+  :root:not([data-theme="light"]) .gbody .tile.X,:root:not([data-theme="light"]) .gdemo .tile.X{background:#66656A}
+  :root:not([data-theme="light"]) .gex p,:root:not([data-theme="light"]) .gp{color:#EDE8DE}
+  :root:not([data-theme="light"]) .gl,:root:not([data-theme="light"]) .gcap{color:#B9B3AA}
+}
+:root[data-theme="dark"] .guide{background:#2C261F;border-color:#52493F}
+:root[data-theme="dark"] #guideSheet{background:#2C261F;border:1px solid #52493F;border-bottom:0;box-shadow:0 -12px 50px rgba(0,0,0,.7)}
+:root[data-theme="dark"] #guideSheet::backdrop{background:rgba(0,0,0,.72)}
+:root[data-theme="dark"] .gdemo{background:#1D1913;border-color:#52493F}
+:root[data-theme="dark"] .gbody .tile.E,:root[data-theme="dark"] .gdemo .tile.E{background:transparent;box-shadow:inset 0 0 0 2px #6A6055}
+:root[data-theme="dark"] .gbody .tile.X,:root[data-theme="dark"] .gdemo .tile.X{background:#66656A}
+:root[data-theme="dark"] .gl,:root[data-theme="dark"] .gcap{color:#B9B3AA}
+
 /* author's note under the byline */
 .authnote{border-left:4px solid var(--red);background:var(--surface);padding:12px 16px 4px;margin:16px 0 8px;max-width:62ch}
 .authnote b{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
